@@ -11,11 +11,9 @@
 		<div class="header">
 					
 
-			<div class="logo">
 			<a href="index.php">
-			<img src="img/logo.png" alt="Logo" class="logo-img" style="width: 25%; height: 25%">
+			<img src="img/logo.png" alt="Logo" class="logo-img" height="80" width="176">
             </a>
-			</div>
 			<ul class="nav">
 				<li class="nav-link">
 					<a href="javascript:;" class="linkmenu">

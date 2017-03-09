@@ -57,19 +57,20 @@
 	<div class="sub-form">	
 	<div class="sub-1">
 			<a>Welcome to Booking</a>
-			<h2>Login</h2>
+			<h2>Create an account</h2>
 		</div>
 		<form action="#" method="post">
-			<input placeholder="E-mail" name="Name" class="user" type="text" required="">
-			<input  placeholder="Password" name="Password" class="pass" type="password" required="">		
+			<input placeholder="First Name" name="FName" class="user" type="text" required="">
+			<input placeholder="Last Name" name="LName" class="user" type="text" required="">
+			<input placeholder="E-mail" name="UName" class="user" type="text" required="">
+			<input  placeholder="Password" name="Password" class="pass" type="password" required="">
+			<input  placeholder="Confirm Password" name="CPassword" class="pass" type="password" required="">
 		
 		<div class="sub">
-			<input type="submit" value="Login"></a>
-			<a href="createAccount.php"><input type="change" value="Don't have an account?"></a>
-			<a href="makeBooking.php"><input type="change" value="<skip this step>"></a>
+			<input type="submit" value="Create Account">
+			<a href="index.php"><input type="change" value="Already Have an Account?"></a>
+			
 		</div>
-		
-		
 		
 		</form>
 	</div>
