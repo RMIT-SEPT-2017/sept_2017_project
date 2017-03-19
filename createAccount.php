@@ -62,7 +62,7 @@
 		<form method="post" action="process_register.php">
 			<input placeholder="First Name" name="FName" class="user" type="text" required="">
 			<input placeholder="Last Name" name="LName" class="user" type="text" required="">
-			<input placeholder="E-mail" name="UName" class="user" type="text" required="">
+			<input placeholder="Email" name="UName" class="user" type="text" required="">
 			<input  placeholder="Password" name="Password" class="pass" type="password" required="">
 			<input  placeholder="Confirm Password" name="CPassword" class="pass" type="password" required="">
 		
