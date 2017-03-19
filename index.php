@@ -59,7 +59,7 @@
 			<a>Welcome to Booking</a>
 			<h2>Login</h2>
 		</div>
-		<form action="#" method="post">
+		<form action="loginAction.php" method="post">
 			<input placeholder="E-mail" name="Name" class="user" type="text" required="">
 			<input  placeholder="Password" name="Password" class="pass" type="password" required="">		
 		
