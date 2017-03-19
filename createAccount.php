@@ -59,7 +59,7 @@
 			<a>Welcome to Booking</a>
 			<h2>Create an account</h2>
 		</div>
-		<form action="#" method="post">
+		<form method="post" action="process_register.php">
 			<input placeholder="First Name" name="FName" class="user" type="text" required="">
 			<input placeholder="Last Name" name="LName" class="user" type="text" required="">
 			<input placeholder="E-mail" name="UName" class="user" type="text" required="">
