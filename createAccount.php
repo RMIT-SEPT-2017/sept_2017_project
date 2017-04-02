@@ -5,15 +5,13 @@
 		<title>Booking System</title>
 		<link href="css/main.css" rel="stylesheet">
 		<link href="css/overlay.css" rel="stylesheet">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 	</head>
 	<body>
 		<div class="header">
-
 			<a href="index.php">
 			<img src="img/logo.png" alt="Logo" class="logo-img" height="80" width="176">
-            </a>
-			
+			</a>
 		</div>
         
         <!-- The overlay -->
@@ -48,30 +46,42 @@
     			})
     		})
     	})
+	function validation(){
+		var validatePass = document.forms["formInput"]["Password"].value;
+		var validateCPass = document.forms["formInput"]["CPassword"].value;
+		var validateEmail = document.forms["formInput"]["UName"].value;
+		var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+		var bolPass = false;
+		var bolEmail =  false;
+		if (validatePass != validateCPass){
+			bolPass = true
+			alert("Passwords do not match.");
+			return false;
+		}
+		if (!filter.test(validateEmail)){
+			alert("Email is invalid.");
+			return false;
+		}
+	}
         </script>
 
-
 <!--Log in form-->
-
 <div class="form-content">
 	<div class="sub-form">	
 	<div class="sub-1">
 			<a>Welcome to Booking</a>
 			<h2>Create an account</h2>
 		</div>
-		<form method="post" action="process_register.php">
+		<form name="formInput" method="post" action="process_register.php" onsubmit="return validation()">
 			<input placeholder="First Name" name="FName" class="user" type="text" required="">
 			<input placeholder="Last Name" name="LName" class="user" type="text" required="">
 			<input placeholder="Email" name="UName" class="user" type="text" required="">
-			<input  placeholder="Password" name="Password" class="pass" type="password" required="">
-			<input  placeholder="Confirm Password" name="CPassword" class="pass" type="password" required="">
-		
+			<input placeholder="Password" name="Password" class="pass" type="password" required="">
+			<input placeholder="Confirm Password" name="CPassword" class="pass" type="password" required="">
 		<div class="sub">
 			<input type="submit" value="Create Account">
 			<a href="index.php"><input type="change" value="Already Have an Account?"></a>
-			
 		</div>
-		
 		</form>
 	</div>
 </div>
