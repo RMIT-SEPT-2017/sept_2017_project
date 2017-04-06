@@ -26,9 +26,11 @@ div.ws-success input {
     border-color: #8c8;
 }
 form {
+    text-align: center;
     margin: 10px auto;
-    width: 700px;
-    min-width: 49.6154em;
+    width: 100%;
+    min-width: 500px;
+    max-width: 800px;
     padding: 10px;
 }
 .form-row {
@@ -38,6 +40,9 @@ form {
 label {
     display: block;
     margin: 3px 0;
+    font-size: medium;
+    font-family: 'Josefin Sans', sans-serif;
+    color: white;
 }
 .form-row input {
     width: 220px;

@@ -1,11 +1,11 @@
-<!DOCTYPE html>
-
+<!doctype html>
 <html>
-<link href="{{ asset('css/style.css') }}" rel="stylesheet">
-<link href="{{ asset('css/calendar_style.css') }}" rel="stylesheet">
-<script src="{{ asset('js/jquery.js') }}"></script>
-<script src="{{ asset('js/js-webshim/minified/polyfiller.js') }}"></script>
+<head>
+     @include('layouts.head')
 
+</head>
+<body>
+    @include('layouts.nav')
 <script>
 
 webshim.setOptions('forms-ext', {
@@ -46,5 +46,4 @@ webshim.polyfill('forms forms-ext');
 		    @endforeach
 		</ul>
 	</div>
-	</body>
-</html>
+@include('layouts.foot')

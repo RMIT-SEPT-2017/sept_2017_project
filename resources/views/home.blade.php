@@ -1,5 +1,11 @@
-@extends('layouts.app')
+<!doctype html>
+<html>
+<head>
+@include('layouts.head')
 
+</head>
+<body>
+@include('layouts.nav')
 @section('content')
 <div class="container">
     <div class="row">
@@ -15,3 +21,4 @@
     </div>
 </div>
 @endsection
+@include('layouts.foot')

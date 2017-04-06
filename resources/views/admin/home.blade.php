@@ -1,3 +1,13 @@
-<a href="http://laravel.dev/create_employee">create_employee</a><br>
-<a href="http://laravel.dev/add_employee_times">add_employee_times</a><br>
-<a href="http://laravel.dev/view_bookings">view_bookings</a>
+<!doctype html>
+<html>
+<head>
+@include('layouts.head')
+
+</head>
+<body>
+@include('layouts.navAdmin')
+
+<h1>THIS FILE IS NOT INCLUDED IN THE MENU<H1>
+<h2>I believe this file will become "view bookings"<H2>
+
+@include('layouts.foot')

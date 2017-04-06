@@ -1,3 +1,12 @@
+<!doctype html>
+<html>
+<head>
+@include('layouts.head')
+
+</head>
+<body>
+@include('layouts.navAdmin')
+
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script> <!-- load jquery via CDN -->
 <script type="text/javascript">
 
@@ -49,47 +58,51 @@ window.onload = setDateFormat;
 
 </script>
 
+<div class="form-content">
+    <div class="sub-form">
+        <div class="sub-1">
+        <a>Welcome</a>
+        <h2>Add new avalibility</h2>
+        </div>
 
-<div id="date"></div>
-<div id="phpDate"></div>
-<button onclick="prevWeek()">Previous Week</button>
-<button onclick="nextWeek()">Next Week</button>
-<br><br>
-<form id="day_form" name="day_form" action="{{ action('AdminController@updateEmployeeTimes') }}" method="POST" class="ajax">
-<label id="monday"></label><br>
 
-	<input type="hidden" id="mon" name="date1" value="" />
-	<input type="time" name="start1" />
-	<input type="time" name="end1" />
-	<br>
-<label id="tuesday"></label><br>
 
-	<input type="hidden" id="tue" name="date2" value="" />
-	<input type="time" name="start2" />
-	<input type="time" name="end2" />
-	<br>
-<label id="wednesday"></label><br>
+            <form id="day_form" name="day_form" action="{{ action('AdminController@updateEmployeeTimes') }}" method="POST" class="ajax">
 
-	<input type="hidden" id="wed" name="date3" value="" />
-	<input type="time" name="start3" />
-	<input type="time" name="end3" />
-	<br>
-<label id="thursday"></label><br>
+            <label id="monday"></label>
+                <input type="hidden" id="mon" name="date1" value="" />
+                <input placeholder="Start Time" name="start1" type="time">
+                <input placeholder="End Time" name="end1" type="time">
 
-	<input type="hidden" id="thu" name="date4" value="" />
-	<input type="time" name="start4" />
-	<input type="time" name="end4" />
-	<br>
-<label id="friday"></label><br>
+            <label id="tuesday"></label><br>
+                <input type="hidden" id="tue" name="date2" value="" />
+                <input placeholder="Start Time" name="start2" type="time">
+                <input placeholder="End Time" name="end2" type="time">
 
-	<input type="hidden" id="fri" name="date5" value="" />
-	<input type="time" name="start5" />
-	<input type="time" name="end5" />
+            <label id="wednesday"></label><br>
+                <input type="hidden" id="wed" name="date3" value="" />
+                <input placeholder="Start Time" name="start3" type="time">
+                <input placeholder="End Time" name="end3" type="time">
 
-	<br>
-	<input type="text" name="id">
-	<button type="submit">Add days</button>
-</form><br>
+            <label id="thursday"></label><br>
+                <input type="hidden" id="thu" name="date4" value="" />
+                <input placeholder="Start Time" name="start4" type="time">
+                <input placeholder="End Time" name="end4" type="time">
+
+            <label id="friday"></label><br>
+                <input type="hidden" id="fri" name="date5" value="" />
+                <input placeholder="Start Time" name="start5" type="time">
+                <input placeholder="End Time" name="end5" type="time"><br>
+
+<a><input type="change1" onclick="prevWeek()" value="Previous Week">
+<input type="change1" onclick="nextWeek()" value="Next Week"></a>
+                    <div class="sub">
+                        <input placeholder="I DONT KNOW WHAT THIS INPUT FIELD IS HERE FOR" name="id" type="text">
+                        <input type="submit" value="Submit"></a>
+                    </div>
+            </form>
+        </div>
+    </div>
 
 <script type="text/javascript">
 
@@ -118,3 +131,5 @@ $('form.ajax').on('submit',function(){
 });
 
 </script>
+
+@include('layouts.foot')

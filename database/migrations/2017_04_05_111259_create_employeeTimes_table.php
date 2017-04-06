@@ -13,11 +13,13 @@ class CreateEmployeeTimesTable extends Migration
      */
     public function up()
     {
-            $table->string('empId');
+        Schema::create('employeesTime', function ($table) {
+            $table->string('ID');
             $table->date('date');
             $table->string('start');
             $table->string('end');
             $table->timestamps();
+    });
     }
 
     /**
