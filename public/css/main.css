@@ -52,7 +52,7 @@ body {
 .form-content {
     margin: 5em 0em;
 }
-.sub-form input[type="text"], .sub-form input[type="password"] {
+.sub-form input[type="text"], .sub-form input[type="password"], .sub-form input[type="email"] {
     outline: none;
     font-size: 1em;
     padding: 1em 1em 1em 2em;
