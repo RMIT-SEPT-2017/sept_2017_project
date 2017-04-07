@@ -21,15 +21,27 @@
 			
 			  <!-- Overlay content -->
 			  <<div class="overlay-content">
-				<a href="#">Home</a>
+				<a href="http://127.0.0.1:8000/home">Home</a>
 				<a href="#">Make Booking</a>
 				<a href="#">View Bookings</a>
-				<a href="#">Log in/out</a>
+				<a href="#">Log out</a>
+
+//Future reference
+//<a href="{{ url('/logout') }}"
+//onclick="event.preventDefault();
+//document.getElementById('logout-form').submit();">
+//Logout
+//</a>
+//
+//<form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+//{{ csrf_field() }}
+//</form>
+
 			  </div>
 
 			</div>
 
-			
+
 			</div>
         <script>
     	$(function(){
