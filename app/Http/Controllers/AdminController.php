@@ -12,7 +12,7 @@ class AdminController extends Controller
     public function index()
     {
     	
-		
+		$admin = Auth::user()->admin;
     	if(!$admin){
     		return redirect('home');
     	}
