@@ -13,10 +13,10 @@ class AdminController extends Controller
     {
     	
 		
-    	$admin = Auth::user()->admin;
-    	if(!$admin){
-    		return redirect('home');
-    	}
+//    $admin = Auth::check() && Auth::user()->isAdmin();
+//    	if(!$admin){
+//    		return redirect('home');
+//    	}
     	return view('admin.home');
     }
 
@@ -25,20 +25,20 @@ class AdminController extends Controller
     {
     	
 		
-    	$admin = Auth::user()->admin;
-    	if(!$admin){
-    		return redirect('home');
-    	}
+//    	$admin = Auth::user()->admin;
+//    	if(!$admin){
+//    		return redirect('home');
+//    	}
     	return view('admin.create_employee');
     }
     public function employeeTimes()
     {
     	
 		
-    	$admin = Auth::user()->admin;
-    	if(!$admin){
-    		return redirect('home');
-    	}
+//    	$admin = Auth::user()->admin;
+//    	if(!$admin){
+//    		return redirect('home');
+//    	}
     	return view('admin.employee_times');
     	
     }

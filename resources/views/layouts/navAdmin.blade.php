@@ -1,16 +1,6 @@
-<!doctype html>
-<html>
-	<head>
-		<meta charset="utf-8">
-		<title>Booking System</title>
-		<link href="css/main.css" rel="stylesheet">
-		<link href="css/overlay.css" rel="stylesheet">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-	</head>
-	<body>
-		<div class="header">
-					
 
+
+		<div class="header">
 			<a href="index.php">
 			<img src="img/logo.png" alt="Logo" class="logo-img" height="80" width="176">
             </a>
@@ -31,10 +21,11 @@
 			
 			  <!-- Overlay content -->
 			  <<div class="overlay-content">
-				<a href="#">Home</a>
-				<a href="#">Make Booking</a>
-				<a href="#">View Bookings</a>
-				<a href="#">Log in/out</a>
+				<a href="http://127.0.0.1:8000/booking">Home</a>
+				<a href="http://127.0.0.1:8000/admin">View Bookings</a>
+                <a href="http://127.0.0.1:8000/create_employee">Add Employee</a>
+                <a href="http://127.0.0.1:8000/add_employee_times">Add availability</a>
+				<a href="#">Log out(Not working)</a>
 			  </div>
 
 			</div>

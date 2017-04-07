@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateEmployeesTable1 extends Migration
+class CreateTableBookings extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,13 @@ class CreateEmployeesTable1 extends Migration
      */
     public function up()
     {
-        //$table->increments('id');
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamps();
+        Schema::create('bookings', function ($table) {
+            $table->increments('bookID');
+            $table->date('date');
+            $table->string('time');
+            $table->string('staff');
+             $table->string('type');
+    });
     }
 
     /**
@@ -29,3 +32,4 @@ class CreateEmployeesTable1 extends Migration
         //
     }
 }
+
