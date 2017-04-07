@@ -210,5 +210,7 @@ body {
 .sub {
     margin-top: 2em;
 }
-
+strong {
+    color:red;
+}
 /*--//form--*/

@@ -5,7 +5,7 @@
 
     </head>
         <body>
-            @include('layouts.nav')
+            @include('layouts.header')
             
             
 <div class="form-content">
@@ -58,7 +58,7 @@
                                 <input type="submit" class="btn btn-primary"
                                     value="Login">
                                 <a href="{{ url('/register') }}"><input type="change" value="Don't have an account?">
-                                <a href="{{ url('/password/reset') }}"><input type="change" value="Forgot Your Password?">
+<!--                                <a href="{{ url('/password/reset') }}"><input type="change" value="Forgot Your Password?">-->
                                     
                                 </a>
                             </div>
