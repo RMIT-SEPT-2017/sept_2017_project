@@ -5,7 +5,7 @@
 
     </head>
         <body>
-            @include('layouts.header')
+        
             
             
 <div class="form-content">

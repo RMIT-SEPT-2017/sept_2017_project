@@ -21,11 +21,11 @@
 			
 			  <!-- Overlay content -->
 			  <<div class="overlay-content">
-				<a href="http://127.0.0.1:8000/booking">Home</a>
-				<a href="http://127.0.0.1:8000/admin">View Bookings</a>
-                <a href="http://127.0.0.1:8000/create_employee">Add Employee</a>
-                <a href="http://127.0.0.1:8000/add_employee_times">Add availability</a>
-				<a href="#">Log out(Not working)</a>
+				<a href="{!! url('/admin'); !!}">Home</a>
+				<a href="">View Bookings</a>
+                <a href="{!! url('/create_employee'); !!}">Add Employee</a>
+                <a href="{!! url('/add_employee_times'); !!}">Add availability</a>
+				<a href="{!! url('/logout'); !!}">Log out</a>
 			  </div>
 
 			</div>

@@ -67,37 +67,37 @@ window.onload = setDateFormat;
 
 
 
-            <form id="day_form" name="day_form" action="{{ action('AdminController@updateEmployeeTimes') }}" method="POST" class="ajax">
+            <form id="day_form" name="day_form" action="{{ action('EmployeeTimesController@updateEmployeeTimes') }}" method="POST" class="ajax">
 
             <label id="monday"></label>
                 <input type="hidden" id="mon" name="date1" value="" />
-                <input placeholder="Start Time" name="start1" type="time">
-                <input placeholder="End Time" name="end1" type="time">
+                <input placeholder="Start Time" name="start1" type="time" value="09:00">
+                <input placeholder="End Time" name="end1" type="time" value="17:00">
 
             <label id="tuesday"></label><br>
                 <input type="hidden" id="tue" name="date2" value="" />
-                <input placeholder="Start Time" name="start2" type="time">
-                <input placeholder="End Time" name="end2" type="time">
+                <input placeholder="Start Time" name="start2" type="time" value="09:00">
+                <input placeholder="End Time" name="end2" type="time" value="17:00">
 
             <label id="wednesday"></label><br>
                 <input type="hidden" id="wed" name="date3" value="" />
-                <input placeholder="Start Time" name="start3" type="time">
-                <input placeholder="End Time" name="end3" type="time">
+                <input placeholder="Start Time" name="start3" type="time" value="09:00">
+                <input placeholder="End Time" name="end3" type="time" value="17:00">
 
             <label id="thursday"></label><br>
                 <input type="hidden" id="thu" name="date4" value="" />
-                <input placeholder="Start Time" name="start4" type="time">
-                <input placeholder="End Time" name="end4" type="time">
+                <input placeholder="Start Time" name="start4" type="time" value="09:00">
+                <input placeholder="End Time" name="end4" type="time" value="17:00">
 
             <label id="friday"></label><br>
                 <input type="hidden" id="fri" name="date5" value="" />
-                <input placeholder="Start Time" name="start5" type="time">
-                <input placeholder="End Time" name="end5" type="time"><br>
+                <input placeholder="Start Time" name="start5" type="time" value="09:00">
+                <input placeholder="End Time" name="end5" type="time" value="17:00"><br>
 
 <a><input type="change1" onclick="prevWeek()" value="Previous Week">
 <input type="change1" onclick="nextWeek()" value="Next Week"></a>
                     <div class="sub">
-                        <input placeholder="I DONT KNOW WHAT THIS INPUT FIELD IS HERE FOR" name="id" type="text">
+                        <input placeholder="Employee Id (we will create a dropdown menu from DB, ADD TO BACKLOG)" name="id" type="text">
                         <input type="submit" value="Submit"></a>
                     </div>
             </form>

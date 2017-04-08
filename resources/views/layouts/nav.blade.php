@@ -20,11 +20,12 @@
 			  <a href="javascript:void(0)" class="closebtn">&times;</a>
 			
 			  <!-- Overlay content -->
-			  <<div class="overlay-content">
-				<a href="http://127.0.0.1:8000/home">Home</a>
+			  <div class="overlay-content">
+				<a href="{!! url('/home'); !!}">Home</a>
 				<a href="#">Make Booking</a>
 				<a href="#">View Bookings</a>
-				<a href="#">Log out</a>
+				<a href="{!! url('/admin'); !!}">Admin</a>
+				<a href="{!! url('/logout'); !!}">Log out</a>
 
 //Future reference
 //<a href="{{ url('/logout') }}"

@@ -13,7 +13,7 @@
             <a>Welcome</a>
             <h2>Add Employee</h2>
         </div>
-            <form method="POST" action="{{ action('AdminController@updateEmployees') }}">
+            <form method="POST" action="{{ action('EmployeeController@updateEmployees') }}">
             <input placeholder="Full Name" name="name" type="text">
             <input placeholder="email" name="email" type="text">
                 <div class="sub">
