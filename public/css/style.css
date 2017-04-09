@@ -35,13 +35,13 @@
 }
 .booking-time input[type="radio"]:disabled + label,
 .Disabled + label {
-    background:#444;
+    background:#000;
 }
 
 .booking-time label {
      padding:5px;
-    
-     background: #EEE;
+    color: #000;
+     background: #FFF;
      cursor:pointer;
     z-index:90;
 }

@@ -70,25 +70,33 @@ table, th, td {
     </style>
 </head>
 <body>
-@include('layouts.navAdmin')    
-    <div class="wrapper">
-        <div class="table">
-            <div class="row header blue">
-                <div class="cell">Customer</div>
-                <div class="cell">Date</div>
-                <div class="cell">Employee</div>
-                <div class="cell">Start Time</div>
-                <div class="cell">End Time</div>
-            </div>
-    @foreach ($bookings as $booking)
-            <div class="row">
-                <div class="cell">{{$booking->name}}</div>
-                <div class="cell">{{$booking->date}}</div>
-                <div class="cell">{{$booking->employee_name}}</div>
-                <div class="cell">{{$booking->start}}</div>
-                <div class="cell">{{$booking->end}}</div>
-            </div>
-	@endforeach
-        </div>    
-  </div>
+@include('layouts.navAdmin') 
+<div class="form-content">
+    <div class="sub-form">   
+      <div class="sub-1">
+          <a>Welcome</a>
+          <h2>All Bookings</h2>
+       </div>           
+          <div class="wrapper">
+              <div class="table">
+                  <div class="row header blue">
+                      <div class="cell">Customer</div>
+                      <div class="cell">Date</div>
+                      <div class="cell">Employee</div>
+                      <div class="cell">Start Time</div>
+                      <div class="cell">End Time</div>
+                  </div>
+          @foreach ($bookings as $booking)
+                  <div class="row">
+                      <div class="cell">{{$booking->name}}</div>
+                      <div class="cell">{{$booking->date}}</div>
+                      <div class="cell">{{$booking->employee_name}}</div>
+                      <div class="cell">{{$booking->start}}</div>
+                      <div class="cell">{{$booking->end}}</div>
+                  </div>
+      	@endforeach
+              </div>    
+        </div>
+    </div>
+</div>
 @include('layouts.foot')

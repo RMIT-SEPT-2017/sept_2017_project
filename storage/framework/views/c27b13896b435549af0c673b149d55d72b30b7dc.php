@@ -22,7 +22,7 @@
 			  <!-- Overlay content -->
 			  <div class="overlay-content">
 				<a href="<?php echo url('/home');; ?>">Home</a>
-				<a href="#">Make Booking</a>
+				<a href="<?php echo url('/booking');; ?>">Make Booking</a>
 				<a href="#">View Bookings</a>
 				<a href="<?php echo url('/logout');; ?>">Log out</a>
 

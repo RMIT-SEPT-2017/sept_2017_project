@@ -28,14 +28,13 @@ div.ws-success input {
 form {
     text-align: center;
     margin: 10px auto;
-    width: 100%;
-    min-width: 500px;
-    max-width: 800px;
+    width: 500px;
     padding: 10px;
 }
 .form-row {
     padding: 5px 10px;
     margin: 5px 0;
+    float: left;
 }
 label {
     display: block;
