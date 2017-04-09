@@ -22,7 +22,7 @@ class AdminController extends Controller
         $bookings = DB::table('bookings')
             ->join('users', 'users.id', '=', 'bookings.user_id')
             ->join('employees', 'employees.id', '=', 'bookings.employee_id')
-            ->select('name', 'start','end', 'employee_name')
+            ->select('name', 'date', 'start', 'end', 'employee_name')
             ->get( );
         
     	return view('admin.home')->with('bookings',$bookings);

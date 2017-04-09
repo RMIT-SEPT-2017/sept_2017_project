@@ -94,8 +94,8 @@ window.onload = setDateFormat;
                 <input placeholder="Start Time" name="start5" type="time" value="09:00">
                 <input placeholder="End Time" name="end5" type="time" value="17:00"><br>
 
-<a><input type="change1" onclick="prevWeek()" value="Previous Week">
-<input type="change1" onclick="nextWeek()" value="Next Week"></a>
+                    <a><input type="change1" onclick="prevWeek()" value="Previous Week">
+                    <input type="change1" onclick="nextWeek()" value="Next Week"></a>
                     <div class="sub">
                         <input placeholder="Employee Id (we will create a dropdown menu from DB, ADD TO BACKLOG)" name="id" type="text">
                         <input type="submit" value="Submit"></a>
