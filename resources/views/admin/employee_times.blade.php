@@ -62,7 +62,7 @@
     <div class="sub-form">
         <div class="sub-1">
         <a>Welcome</a>
-        <h2>Add new avalibility</h2>
+        <h2>Add new availability</h2>
         </div>
 
 

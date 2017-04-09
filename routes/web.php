@@ -22,6 +22,7 @@ Route::post('update_employee_times', ['as' => 'update_employee_times', 'uses' =>
 Route::get('/logout', 'AdminController@logoutUser');
 Route::get('/admin', 'AdminController@index');
 Route::get('/create_employee', 'AdminController@createEmployee');
+Route::get('/view_employees', 'AdminController@viewEmployee');
 Route::get('/add_employee_times', 'AdminController@employeeTimes');
 Route::get('/view_bookings', 'AdminController@bookings');
 

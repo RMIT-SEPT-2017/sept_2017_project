@@ -21,10 +21,9 @@
 			
 			  <!-- Overlay content -->
 			  <<div class="overlay-content">
-				<a href="{!! url('/admin'); !!}">Home</a>
-				<a href="">View Bookings</a>
+				<a href="{!! url('/admin'); !!}">View Bookings</a>
                 <a href="{!! url('/create_employee'); !!}">Add Employee</a>
-                <a href="{!! url('/add_employee_times'); !!}">Add availability</a>
+                <a href="{!! url('/view_employees'); !!}">View Availability</a>
 				<a href="{!! url('/logout'); !!}">Log out</a>
 			  </div>
 

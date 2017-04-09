@@ -53,6 +53,20 @@ class AdminController extends Controller
     	return view('admin.employee_times');
     	
     }
+    
+    public function viewEmployee()
+    {
+    	$admin = Auth::user()->admin;
+    	if(!$admin){
+    		return redirect('home');
+    	}
+    	$employeeTimes = DB::table('employeeTimes')
+            ->join('employees', 'employees.id', '=', 'employeeTimes.empid')
+            ->select('employee_name', 'day', 'start', 'end')
+            ->get( );
+        return view('admin.view_employees')->with('employeeTimes', $employeeTimes);
+    }
+    
     public function bookings()
     {	
     	$admin = Auth::user()->admin;

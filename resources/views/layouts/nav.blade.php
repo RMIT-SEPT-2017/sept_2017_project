@@ -21,9 +21,9 @@
 			
 			  <!-- Overlay content -->
 			  <div class="overlay-content">
-				<a href="{!! url('/home'); !!}">Home</a>
+<!--				<a href="{!! url('/home'); !!}">Home</a>-->
 				<a href="{!! url('/booking'); !!}">Make Booking</a>
-				<a href="#">View Bookings</a>
+<!--				<a href="#">View Bookings</a>-->
 				<a href="{!! url('/logout'); !!}">Log out</a>
 
 <!--Future reference
