@@ -17,7 +17,7 @@ class EmployeeController extends Controller
     	$email = Input::get('email');
     	if($this->checkName($name)&&$this->checkEmail($email)){
 	    	$employee = new employee;
-	        $employee->name = $name;
+	        $employee->employee_name = $name;
 	        $employee->email = $email;
 	        $employee->save();
 	    }

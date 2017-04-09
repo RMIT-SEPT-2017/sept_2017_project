@@ -26,17 +26,17 @@
 				<a href="#">View Bookings</a>
 				<a href="<?php echo url('/logout');; ?>">Log out</a>
 
-//Future reference
-//<a href="<?php echo e(url('/logout')); ?>"
-//onclick="event.preventDefault();
-//document.getElementById('logout-form').submit();">
-//Logout
-//</a>
-//
-//<form id="logout-form" action="<?php echo e(url('/logout')); ?>" method="POST" style="display: none;">
-//<?php echo e(csrf_field()); ?>
+<!--Future reference
+<a href="<?php echo e(url('/logout')); ?>"
+onclick="event.preventDefault();
+document.getElementById('logout-form').submit();">
+Logout
+</a>
 
-//</form>
+<form id="logout-form" action="<?php echo e(url('/logout')); ?>" method="POST" style="display: none;">
+<?php echo e(csrf_field()); ?>
+
+</form>-->
 
 			  </div>
 

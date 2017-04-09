@@ -55,7 +55,7 @@ webshim.polyfill('forms forms-ext');
 		<div class="booking-wrapper">
 		<form action="{{ action('BookingController@update') }}" method="GET" class="ws-validate" id="calendar">
 			<div class="form-row">
-			    <input type="date" class="hide-replaced" name="date"/>
+			    <input type="date" class="hide-replaced" name="date" id="datepicker"/>
 			</div>
 			<div class="form-row">
 			    <input type="submit" />

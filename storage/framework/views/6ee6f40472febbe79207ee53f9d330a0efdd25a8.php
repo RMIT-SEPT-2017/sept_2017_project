@@ -55,7 +55,7 @@ webshim.polyfill('forms forms-ext');
 		<div class="booking-wrapper">
 		<form action="<?php echo e(action('BookingController@update')); ?>" method="GET" class="ws-validate" id="calendar">
 			<div class="form-row">
-			    <input type="date" class="hide-replaced" name="date"/>
+			    <input type="date"  name="date" id="datepicker"/>
 			</div>
 			<div class="form-row">
 			    <input type="submit" />
@@ -84,4 +84,12 @@ webshim.polyfill('forms forms-ext');
 		<?php endforeach; $__env->popLoop(); $loop = $__env->getFirstLoop(); ?>
 		</div>
 	</div>
+
+	<script type="text/javascript">
+	​$("#datepicker").datepicker({
+    beforeShowDay: function(date) {
+        return [date.getDay() == 5];
+    }
+})​​​​​;​
+	</script>
 <?php echo $__env->make('layouts.foot', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
