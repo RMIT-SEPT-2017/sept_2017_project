@@ -20,15 +20,16 @@ class BookingController extends Controller
 
 
     	$bookings = Booking::all();
-    	return ($bookings);
+    	//return ($bookings);
 
 
 
 
-    	//return view('book')->with('bookings',$bookings);
+    	return view('book')->with('bookings',$bookings);
     }	
     public function update()
     {	
+    	//dummy data for bookings, will change to dynamic system in part be 
     	$timesArray = ['9:00AM','9:30AM','10:00AM','10:30AM','11:00AM','11:30AM','12:00PM','12:30PM','1:00PM','1:30PM','2:00PM','2:30PM','3:00PM','3:30PM','4:00PM','4:30PM'];
     	$times;
     	for($i=0;$i<16;$i++){
