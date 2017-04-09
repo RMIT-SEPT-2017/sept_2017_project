@@ -8,7 +8,7 @@ class LoginTests extends TestCase
     public function testLoginCorrect()
     {
         $this->visit(route('login'))
-            ->type('test@mail.com', 'email')
+            ->type('test@gmail.com', 'email')
             ->type('password', 'password')
             ->press('Login')
             ->seePageIs('/home');
@@ -20,6 +20,31 @@ class LoginTests extends TestCase
             ->type('password', 'password')
             ->press('Login')
             ->seePageIs('/admin');
+    }
+
+    public function testAdminLoginIncorrect()
+    {
+        $this->visit(route('login'))
+            ->type('bo@mail.com', 'email')
+            ->type('notpassword', 'password')
+            ->press('Login')
+            ->seePageIs('/login');
+    }
+    public function testLoginIncorrect()
+    {
+        $this->visit(route('login'))
+            ->type('test@gmail.com', 'email')
+            ->type('notpassword', 'password')
+            ->press('Login')
+            ->seePageIs('/login');
+    }
+    public function testLoginBlank()
+    {
+        $this->visit(route('login'))
+            ->type('', 'email')
+            ->type('', 'password')
+            ->press('Login')
+            ->seePageIs('/login');
     }
 
 }

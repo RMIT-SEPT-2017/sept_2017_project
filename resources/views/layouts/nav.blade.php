@@ -24,7 +24,6 @@
 				<a href="{!! url('/home'); !!}">Home</a>
 				<a href="#">Make Booking</a>
 				<a href="#">View Bookings</a>
-				<a href="{!! url('/admin'); !!}">Admin</a>
 				<a href="{!! url('/logout'); !!}">Log out</a>
 
 //Future reference
