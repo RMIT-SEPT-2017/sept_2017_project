@@ -102,7 +102,7 @@
                 <div class="sub">
                         <input placeholder="Employee Id (we will create a dropdown menu from DB, ADD TO BACKLOG)" name="id" type="text">
                         <input type="submit" value="Submit"></a>
-                        
+                        <a href="{{ url('/view_employees') }}"><input type="change" value="View all employees">
                     </div>
             </form>
         </div>
