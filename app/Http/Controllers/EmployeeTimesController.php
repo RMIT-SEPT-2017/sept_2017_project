@@ -15,18 +15,19 @@ class EmployeeTimesController extends Controller
 
         $id = Input::get('id');
 
-        $dateArray = array('date1','date2','date3','date4','date5');
+        $dayArray = array('day1','day2','day3','day4','day5');
         $startArray = array('start1','start2','start3','start4','start5');
         $endArray = array('end1','end2','end3','end4','end5');
         if($this->checkEmployeeId($id)){
             for($i=0;$i<5;$i++){
-                $date = Input::get($dateArray[$i]);
+                $day = Input::get($dayArray[$i]);
                 $start = Input::get($startArray[$i]);
                 $end = Input::get($endArray[$i]);
-                if($this->checkTimesMatch($start,$end)&&$this->checkTimes($start,$end)&&$this->checkDate($date)){
+                if($this->checkTimesMatch($start,$end)&&$this->checkTimes($start,$end)){
+                    //&&$this->checkDate($date)^^
                     $employeeTime = new employeeTime;
                     $employeeTime->empid = $id;
-                    $employeeTime->date = $date;
+                    $employeeTime->day = $day;
                     $employeeTime->start = $start;
                     $employeeTime->end = $end;
                     $employeeTime->save();
@@ -62,9 +63,9 @@ class EmployeeTimesController extends Controller
         }
         return false;
     }
-    public static function checkDate($date)
-    {
-        if(strtotime($date) < strtotime('now')) return false;
-        return true;
-    }
+//    public static function checkDate($date)
+//    {
+//        if(strtotime($date) < strtotime('now')) return false;
+//        return true;
+//    }
 }
