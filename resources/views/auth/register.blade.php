@@ -71,7 +71,7 @@
 						<div class="form-group{{ $errors->has('post_code') ? ' has-error' : '' }}">
 
                             <div class="col-md-6">
-                                <input placeholder="Post Code" id="post_code" type="text" class="form-control" name="post_code" value="{{ old('post_code') }}" required><br>
+                                <input placeholder="Post Code" id="post_code" type="text" class="form-control" name="post_code" value="{{ old('post_code') }}" maxlength="4" onkeyup="this.value = this.value.replace(/[^0-9]/, '')" required><br>
 
                                 @if ($errors->has('post_code'))
                                     <span class="help-block">
