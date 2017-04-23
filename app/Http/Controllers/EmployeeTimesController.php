@@ -9,6 +9,7 @@ use App\EmployeeTime;
 
 class EmployeeTimesController extends Controller
 {
+    
     public function updateEmployeeTimes()
     {
 
