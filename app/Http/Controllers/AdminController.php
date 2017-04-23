@@ -45,12 +45,17 @@ class AdminController extends Controller
     public function employeeTimes()
     {
     	
-		
+		$employeesNames = Employee::pluck('employee_name');
+        $employeesIds = Employee::pluck('id');
+        $data = array(
+            'names' => $employeesNames,
+            'ids' => $employeesIds,
+        );
     	$admin = Auth::user()->admin;
     	if(!$admin){
     		return redirect('home');
     	}
-    	return view('admin.employee_times');
+    	return view('admin.employee_times')->with($data);
     	
     }
     

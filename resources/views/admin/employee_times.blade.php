@@ -100,7 +100,13 @@
 -->
                     
                 <div class="sub">
-                        <input placeholder="Employee Id (we will create a dropdown menu from DB, ADD TO BACKLOG)" name="id" type="text">
+                        <label >Select Employee</label><br>
+                        <select name="id">
+                        <?php $i = 0?>
+                        @foreach ($ids as $id)
+                                  <option value="{{$id}}">{{$names[$i++]}}</option>                  
+                        @endforeach
+                        </select><br><br>
                         <input type="submit" value="Submit"></a>
                         <a href="{{ url('/view_employees') }}"><input type="change" value="View all employees">
                     </div>
