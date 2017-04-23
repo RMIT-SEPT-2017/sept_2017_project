@@ -7642,3 +7642,12 @@ Stack trace:
 #39 C:\xampp\htdocs\laravel\vendor\laravel\framework\src\Illuminate\Foundation\Http\Kernel.php(117): Illuminate\Foundation\Http\Kernel->sendRequestThroughRouter(Object(Illuminate\Http\Request))
 #40 C:\xampp\htdocs\laravel\public\index.php(54): Illuminate\Foundation\Http\Kernel->handle(Object(Illuminate\Http\Request))
 #41 {main}  
+[2017-04-23 09:06:52] local.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Call to a member function validate() on boolean' in C:\xampp\htdocs\laravel\vendor\laravel\framework\src\Illuminate\Foundation\Auth\RegistersUsers.php:31
+Stack trace:
+#0 {main}  
+[2017-04-23 09:07:29] local.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Call to a member function validate() on boolean' in C:\xampp\htdocs\laravel\vendor\laravel\framework\src\Illuminate\Foundation\Auth\RegistersUsers.php:31
+Stack trace:
+#0 {main}  
+[2017-04-23 09:30:32] local.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Call to a member function validate() on boolean' in C:\xampp\htdocs\laravel\vendor\laravel\framework\src\Illuminate\Foundation\Auth\RegistersUsers.php:31
+Stack trace:
+#0 {main}  
