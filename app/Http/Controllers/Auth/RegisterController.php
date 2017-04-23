@@ -47,14 +47,13 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
-        return false;
         return Validator::make($data, [
-            'name' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:users',
-			'address' => 'required|max:255',
-			'suburb' => 'required|max:255',
-			'post_code' => 'required|max:4',
-            'password' => 'required|min:6|confirmed',
+		'name' => 'required|max:255',
+		'email' => 'required|email|max:255|unique:users',
+		'address' => 'required|max:255',
+		'suburb' => 'required|alpha|max:255',
+		'post_code' => 'required|digits:4|max:255',
+		'password' => 'required|min:6|confirmed',
         ]);
     }
 
@@ -67,14 +66,13 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-			'address' => $data['address'],
-			'suburb' => $data['suburb'],
-			'post_code' => (int)$data['post_code'],
-            'password' => bcrypt($data['password']),
-            'admin' => 0,
-            
+		'name' => ucwords($data['name']),
+		'email' => $data['email'],
+		'address' => $data['address'],
+		'suburb' => ucwords($data['suburb']),
+		'post_code' => (int)$data['post_code'],
+		'password' => bcrypt($data['password']),
+		'admin' => 0,
         ]);
     }
 }
