@@ -19,7 +19,7 @@ class RegisterController extends Controller
     | provide this functionality without requiring any additional code.
     |
     */
-
+ 
     use RegistersUsers;
 
     /**
@@ -50,9 +50,12 @@ class RegisterController extends Controller
         return Validator::make($data, [
 		'name' => 'required|max:255',
 		'email' => 'required|email|max:255|unique:users',
-		'address' => 'required|max:255',
-		'suburb' => 'required|max:255',
-		'post_code' => 'required|digits:4|max:255',
+		'street_number' => 'required|max:255',
+        'route' => 'required|max:255',
+		'locality' => 'required|max:255',
+        'administrative_area_level_1' => 'required|max:255',
+        'postal_code' => 'required|max:255',
+        'country' => 'required|max:255',
 		'password' => 'required|min:6|confirmed',
         ]);
     }
@@ -68,9 +71,12 @@ class RegisterController extends Controller
         return User::create([
 		'name' => ucwords($data['name']),
 		'email' => $data['email'],
-		'address' => $data['address'],
-		'suburb' => ucwords($data['suburb']),
-		'post_code' => (int)$data['post_code'],
+		'street_number' => $data['street_number'],
+		'route' => $data['route'],
+        'locality' => $data['locality'],
+        'administrative_area_level_1' => $data['administrative_area_level_1'],
+        'country' => $data['country'],
+		'postal_code' => (int)$data['postal_code'],
 		'password' => bcrypt($data['password']),
 		'admin' => 0,
         ]);

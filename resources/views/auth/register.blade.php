@@ -1,9 +1,10 @@
 <!doctype html>
 <html>
+
     <head>
         @include('layouts.head')
 
-
+        @include('layouts.google_style')
 
     <script type="text/javascript">
     function validateForm() { 
@@ -62,47 +63,19 @@
                                 @endif
                             </div>
                         </div>
+                        
 
-                        <div class="form-group{{ $errors->has('address') ? ' has-error' : '' }}">
+                        
 
-                            <div class="col-md-6">
-                                <input placeholder="Address" id="address" type="text" class="form-control" name="address" value="{{ old('address') }}" required><br>
-
-                                @if ($errors->has('address'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('address') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-						
-						<div class="form-group{{ $errors->has('suburb') ? ' has-error' : '' }}">
 
                             <div class="col-md-6">
-                                <input placeholder="Suburb" id="suburb" type="text" class="form-control" name="suburb" value="{{ old('suburb') }}" required><br>
+                                @include('layouts.googleApi')
+                                
+                                <br>
 
-                                @if ($errors->has('suburb'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('suburb') }}</strong>
-                                    </span>
-                                @endif
                             </div>
-                        </div>
-						
-						<div class="form-group{{ $errors->has('post_code') ? ' has-error' : '' }}">
-
-                            <div class="col-md-6">
-                                <input placeholder="Post Code" id="post_code" type="text" class="form-control" name="post_code" value="{{ old('post_code') }}" required><br>
-
-                                @if ($errors->has('post_code'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('post_code') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-						
-						
+                        
+                        
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
 
                             <div class="col-md-6">

@@ -1,68 +1,14 @@
-    <style>
-      /* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
-      #map {
-        height: 100%;
-      }
-      /* Optional: Makes the sample page fill the window. */
-      html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
-    </style>
-    <link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500">
-    <style>
-      #locationField, #controls {
-        position: relative;
-        width: 480px;
-      }
-      #autocomplete {
-        position: absolute;
-        top: 0px;
-        left: 0px;
-        width: 99%;
-      }
-      .label {
-        text-align: right;
-        font-weight: bold;
-        width: 100px;
-        color: #303030;
-      }
-      #address {
-        border: 1px solid #000090;
-        background-color: #f0f0ff;
-        width: 480px;
-        padding-right: 2px;
-      }
-      #address td {
-        font-size: 10pt;
-      }
-      .field {
-        width: 99%;
-      }
-      .slimField {
-        width: 80px;
-      }
-      .wideField {
-        width: 200px;
-      }
-      #locationField {
-        height: 20px;
-        margin-bottom: 2px;
-      }
-    </style>
-    <div id="locationField">
-      <input id="autocomplete" placeholder="Enter your address"
+    <div id="locationField" >
+      <input class="form-control" id="autocomplete" placeholder="Enter your address"
              onFocus="geolocate()" type="text"></input>
     </div>
 
-    <input class="field" id="street_number" disabled="true" type="hidden"></input>
-    <input class="field" id="route" disabled="true"  type="hidden"></input>
-    <input class="field" id="locality" disabled="true"  type="hidden"></input>
-    <input class="field" id="administrative_area_level_1" disabled="true"  type="hidden"></input>
-    <input class="field" id="postal_code" disabled="true"  type="hidden"></input>
-    <input class="field" id="country" disabled="true"  type="hidden"></input>
+    <input class="field" id="street_number" name="street_number" disabled="true" type="hidden"></input>
+    <input class="field" id="route" name="route" disabled="true"  type="hidden"></input>
+    <input class="field" id="locality" name="locality" disabled="true"  type="hidden"></input>
+    <input class="field" id="administrative_area_level_1" name="administrative_area_level_1" disabled="true"  type="hidden"></input>
+    <input class="field" id="postal_code" name="postal_code" disabled="true"  type="hidden"></input>
+    <input class="field" id="country" name="country" disabled="true"  type="hidden"></input>
 
     <script>
       // This example displays an address form, using the autocomplete feature
