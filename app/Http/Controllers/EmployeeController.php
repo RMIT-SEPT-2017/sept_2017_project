@@ -20,7 +20,8 @@ class EmployeeController extends Controller
 	        $employee->employee_name = $name;
 	        $employee->email = $email;
 	        $employee->save();
-	    }
+	    } 
+        return redirect('/add_employee_times');
     }
 
 

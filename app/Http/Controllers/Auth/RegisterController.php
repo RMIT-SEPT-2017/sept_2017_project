@@ -51,7 +51,7 @@ class RegisterController extends Controller
 		'name' => 'required|max:255',
 		'email' => 'required|email|max:255|unique:users',
 		'address' => 'required|max:255',
-		'suburb' => 'required|alpha|max:255',
+		'suburb' => 'required|max:255',
 		'post_code' => 'required|digits:4|max:255',
 		'password' => 'required|min:6|confirmed',
         ]);
