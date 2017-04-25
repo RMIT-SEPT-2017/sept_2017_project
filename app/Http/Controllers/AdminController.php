@@ -78,5 +78,15 @@ class AdminController extends Controller
     	if(!$admin){
     		return redirect('home');
     	}
-    }	
+    }
+    public function addService()
+    {
+    	
+		
+    	$admin = Auth::user()->admin;
+    	if(!$admin){
+    		return redirect('home');
+    	}
+    	return view('admin.add_service');
+    }
 }

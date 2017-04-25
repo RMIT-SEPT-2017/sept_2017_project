@@ -34,5 +34,13 @@ return [
         'key' => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
     ],
+    
+    'providers' => [
+        Edofre\Fullcalendar\FullcalendarServiceProvider::class,
+    ],
+    
+    'aliases' => [
+        'Fullcalendar' => Edofre\Fullcalendar\Facades\Fullcalendar::class,
+    ],
 
 ];

@@ -25,6 +25,12 @@ Route::get('/create_employee', 'AdminController@createEmployee');
 Route::get('/view_employees', 'AdminController@viewEmployee');
 Route::get('/add_employee_times', 'AdminController@employeeTimes');
 Route::get('/view_bookings', 'AdminController@bookings');
+Route::get('/add_service', 'AdminController@addService');
+
+Route::get('/calendar', 'CalendarController@index');
+
+
+
 
 //Route::get('/booking/{date}','BookingController@update');
 //Route::resource('/booking', 'BookingController');
