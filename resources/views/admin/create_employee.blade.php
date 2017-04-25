@@ -34,15 +34,17 @@
             <h2>Add Employee</h2>
         </div>
             <form class="addEmployee" method="POST" action="{{ action('EmployeeController@updateEmployees') }}" onsubmit="return validateForm();">
-            <input placeholder="Full Name" name="name" type="text" id="name">
-            <input placeholder="email" name="email" type="text" id="email">
+	    <label class="input">Full Name:</label>
+            <input placeholder="" name="name" type="text" id="name">
+	    <label class="input">Email:</label>
+            <input placeholder="" name="email" type="text" id="email">
                 <div class="sub">
                     <input type="submit" value="Submit" ></a>
 
                 </div>
             </form>
-            <label id="emailValidation"></label>
-            <label id="nameValidation"></label>
+            <label id="emailValidation" class="warning"></label>
+            <label id="nameValidation" class="warning"></label>
     </div>
 </div>
 

@@ -210,6 +210,28 @@ body {
 .sub {
     margin-top: 2em;
 }
+label.input{
+    text-align: left;
+    outline: none;
+    font-size: 1em;
+    padding: 1em 1em 1em 2em;
+    border: none;
+    margin-bottom: 0.3em;
+    background: none;
+    width: 87%;
+    color: white;
+    font-weight: 400;
+    font-family: 'Josefin Sans', sans-serif;
+    letter-spacing: 1px;
+}
+label.warning {
+    display: block;
+    margin: 3px 0;
+    font-size: medium;
+    font-family: 'Josefin Sans', sans-serif;
+    color: red;
+    text-align: center;
+}
 strong {
     color:red;
 }

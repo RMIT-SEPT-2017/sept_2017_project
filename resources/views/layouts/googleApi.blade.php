@@ -1,5 +1,5 @@
     <div id="locationField" >
-      <input class="form-control" id="autocomplete" placeholder="Enter your address"
+      <input class="form-control" id="autocomplete" placeholder=""
              onFocus="geolocate()" type="text"></input>
     </div>
 

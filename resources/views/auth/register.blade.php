@@ -38,9 +38,10 @@
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}" onsubmit="return validateForm();">
                         {{ csrf_field() }}
 
+			<label class="input">Full Name:</label>
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                             <div class="col-md-6">
-                                <input placeholder="Name" id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus><br>
+                                <input placeholder="" id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus><br>
                                 <label id="nameValidation"></label>
                                 @if ($errors->has('name'))
                                     <span class="help-block">
@@ -50,11 +51,10 @@
                             </div>
                         </div>
 
+			<label class="input">Email:</label>
                         <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            
-
                             <div class="col-md-6">
-                                <input placeholder="E-Mail Address" id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required><br>
+                                <input placeholder="" id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required><br>
 
                                 @if ($errors->has('email'))
                                     <span class="help-block">
@@ -64,22 +64,16 @@
                             </div>
                         </div>
                         
-
+			<br><label class="input">Address:</label>
+			<div class="col-md-6">
+			    @include('layouts.googleApi')
+			    <br>
+			</div>
                         
-
-
-                            <div class="col-md-6">
-                                @include('layouts.googleApi')
-                                
-                                <br>
-
-                            </div>
-                        
-                        
+			<br><label class="input">Password:</label>
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-
                             <div class="col-md-6">
-                                <input placeholder="Password" id="password" type="password" class="form-control" name="password" required><br>
+                                <input placeholder="" id="password" type="password" class="form-control" name="password" required><br>
 
                                 @if ($errors->has('password'))
                                     <span class="help-block">
@@ -89,10 +83,10 @@
                             </div>
                         </div>
 
+			<label class="input">Confirm Password:</label>
                         <div class="form-group">
-
                             <div class="col-md-6">
-                                <input placeholder="Confirm Password" id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                                <input placeholder="" id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                             </div>
                         </div>
 

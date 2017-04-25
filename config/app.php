@@ -177,8 +177,6 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        Edofre\Fullcalendar\FullcalendarServiceProvider::class,
-
     ],
 
     /*
@@ -226,9 +224,6 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-        'Fullcalendar' => Edofre\Fullcalendar\Facades\Fullcalendar::class,
-
-
     ],
 
 ];
