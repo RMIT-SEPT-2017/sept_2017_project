@@ -15,7 +15,7 @@ Route::get('/', 'HomeController@index');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
-Route::get('booking', ['as' => 'booking', 'uses' => 'BookingController@update']);
+Route::get('booking', 'BookingController@index');
 Route::post('update_employee', ['as' => 'update_employee', 'uses' => 'EmployeeController@updateEmployees']);
 Route::post('update_employee_times', ['as' => 'update_employee_times', 'uses' => 'EmployeeTimesController@updateEmployeeTimes']);
 Route::get('/logout', 'AdminController@logoutUser');
