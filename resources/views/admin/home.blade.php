@@ -14,7 +14,7 @@
 			header: {
 				left: 'prev,next today',
 				center: 'title',
-				right: 'listMonth,listWeek,listDay'
+				right: 'month,listMonth,listWeek,listDay'
 			},
 			defaultView: 'listWeek',
 			editable: true,
@@ -23,9 +23,10 @@
             events: [
                 @foreach ($bookings as $booking)
 				{
-					title: '{{$booking->name}} with {{$booking->employee_name}}',
+					title: '{{$booking->title}} for {{$booking->name}} with {{$booking->employee_name}}',
 					start: '{{$booking->date}}T{{$booking->start}}',
                     end: '{{$booking->date}}T{{$booking->end}}',
+                    color: '{{$booking->color}}',
 				},
                 @endforeach
 			]

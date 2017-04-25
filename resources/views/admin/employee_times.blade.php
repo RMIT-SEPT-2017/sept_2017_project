@@ -70,27 +70,27 @@
             <form id="day_form" name="day_form" action="{{ action('EmployeeTimesController@updateEmployeeTimes') }}" method="POST" class="ajax">
 
             <label id="monday">Monday</label>
-                <input type="hidden" id="mon" name="day1" value="Monday" />
+                <input type="hidden" id="mon" name="day1" value="1" />
                 <input placeholder="Start Time" name="start1" type="time" value="09:00">
                 <input placeholder="End Time" name="end1" type="time" value="17:00">
 
             <label id="tuesday">Tuesday</label><br>
-                <input type="hidden" id="tue" name="day2" value="Tuesday" />
+                <input type="hidden" id="tue" name="day2" value="2" />
                 <input placeholder="Start Time" name="start2" type="time" value="09:00">
                 <input placeholder="End Time" name="end2" type="time" value="17:00">
 
             <label id="wednesday">Wednesday</label><br>
-                <input type="hidden" id="wed" name="day3" value="Wednesday" />
+                <input type="hidden" id="wed" name="day3" value="3" />
                 <input placeholder="Start Time" name="start3" type="time" value="09:00">
                 <input placeholder="End Time" name="end3" type="time" value="17:00">
 
             <label id="thursday">Thursday</label><br>
-                <input type="hidden" id="thu" name="day4" value="Thursday" />
+                <input type="hidden" id="thu" name="day4" value="4" />
                 <input placeholder="Start Time" name="start4" type="time" value="09:00">
                 <input placeholder="End Time" name="end4" type="time" value="17:00">
 
             <label id="friday">Friday</label><br>
-                <input type="hidden" id="fri" name="day5" value="Friday" />
+                <input type="hidden" id="fri" name="day5" value="5" />
                 <input placeholder="Start Time" name="start5" type="time" value="09:00">
                 <input placeholder="End Time" name="end5" type="time" value="17:00"><br>
 
