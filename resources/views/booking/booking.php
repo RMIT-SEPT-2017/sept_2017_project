@@ -236,17 +236,17 @@
 			events: [
 			<?php foreach($bookings as $booking): 
 			
-				$start = explode(" ", $booking['start']);
-				$end = explode(" ", $booking['end']);
+				$start = explode(" ", $booking['estart']);
+				$end = explode(" ", $booking['eend']);
 				if($start[1] == '00:00:00'){
 					$start = $start[0];
 				}else{
-					$start = $booking['start'];
+					$start = $booking['estart'];
 				}
 				if($end[1] == '00:00:00'){
 					$end = $end[0];
 				}else{
-					$end = $booking['end'];
+					$end = $booking['eend'];
 				}
 			?>
 				{
