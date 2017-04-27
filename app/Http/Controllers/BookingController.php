@@ -43,12 +43,13 @@ class BookingController extends Controller
     	$cust = Input::get('customer_id');
     	$start = Input::get('start');
 
-    	$minutes_to_add = 5;
+    	$duration = DB::table('services')->where('id', $service)->value('duration');
+		$end = new DateTime($start);
+		$end->add(new DateInterval('PT' . $duration . 'M'));
 
-$time = new DateTime('2011-11-17 05:05');
-$time->add(new DateInterval('PT' . $minutes_to_add . 'M'));
+		$end = $end->format('Y-m-d H:i:s');
 
-$stamp = $time->format('Y-m-d H:i');
+		//end = $end->format('Y-m-d H:i:s');
     	
     	$event = new event;
 	        $event->service_id = $service;
@@ -56,7 +57,7 @@ $stamp = $time->format('Y-m-d H:i');
 	        $event->customer_id = $cust;
 	        $event->color = 0;
 	        $event->estart = $start;
-	        $event->eend = $end
+	        $event->eend = $end;
 	        $event->save();
    	}
 }
