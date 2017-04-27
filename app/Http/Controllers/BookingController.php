@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
 use App\Event;
@@ -35,7 +36,12 @@ class BookingController extends Controller
 		    'employees' => $employees,
 		    'customers' => $customers
 		);
-    	return view('booking.booking')->with($data);
+
+        $admin = Auth::user()->admin;
+    	if(!$admin){ 
+    		return view('booking.booking')->with($data);
+    	}
+    	return view('booking.booking_admin')->with($data);
     }	
     public function addBooking(){
     	$service = Input::get('service_id');
@@ -59,5 +65,6 @@ class BookingController extends Controller
 	        $event->estart = $start;
 	        $event->eend = $end;
 	        $event->save();
+	        return redirect('booking');
    	}
 }

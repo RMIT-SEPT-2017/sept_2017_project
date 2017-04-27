@@ -19,14 +19,7 @@ class AdminController extends Controller
     		return redirect('home');
     	}
         //join the databases
-        $bookings = DB::table('bookings')
-            ->join('users', 'users.id', '=', 'bookings.user_id')
-            ->join('employees', 'employees.id', '=', 'bookings.employee_id')
-            ->join('events', 'events.id', '=', 'bookings.events_id')
-            ->select('name', 'date', 'start', 'end', 'employee_name', 'color', 'title')
-            ->get( );
-        
-    	return view('admin.home');//->with('bookings',$bookings);
+    	return redirect('booking');
     }
     public function logoutUser(){
         Auth::logout();
