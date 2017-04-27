@@ -26,7 +26,7 @@ class AdminController extends Controller
             ->select('name', 'date', 'start', 'end', 'employee_name', 'color', 'title')
             ->get( );
         
-    	return view('admin.home')->with('bookings',$bookings);
+    	return view('admin.home');//->with('bookings',$bookings);
     }
     public function logoutUser(){
         Auth::logout();

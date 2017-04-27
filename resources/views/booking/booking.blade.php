@@ -75,8 +75,7 @@
 
         <div class="row">
             <div class="col-lg-12 text-center">
-                <h1>FullCalendar BS3 PHP MySQL</h1>
-                <p class="lead">Complete with pre-defined file paths that you won't have to change!</p>
+               
                 <div id="calendar" class="col-centered">
                 </div>
             </div>
@@ -88,27 +87,54 @@
 		<div class="modal fade" id="ModalAdd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 		  <div class="modal-dialog" role="document">
 			<div class="modal-content">
-			<form class="form-horizontal" method="POST" action="addEvent.php">
-			
+			<form class="form-horizontal" method="POST" action="{{ action('BookingController@addBooking') }}">
+				<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
 			  <div class="modal-header">
+
 				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 				<h4 class="modal-title" id="myModalLabel">Add Event</h4>
 			  </div>
 			  <div class="modal-body">
 				
 				  <div class="form-group">
-					<label for="title" class="col-sm-2 control-label">Title</label>
+					<label for="title" class="col-sm-2 control-label">Employee</label>
 					<div class="col-sm-10">
-					  <input type="text" name="title" class="form-control" id="title" placeholder="Title">
+					  <select name="employee_id" class="form-control" id="employee_id">
+						  <option value="">Choose</option>
+						 <?php foreach($employees as $employee):
+
+						 	echo '<option value="'.$employee->id.'">'.$employee->employee_name.'</option>';
+						 endforeach; ?>
+						  
+						</select>
 					</div>
 				  </div>
+
+
+
 				  <div class="form-group">
-					<label for="color" class="col-sm-2 control-label">Color</label>
+					<label for="title" class="col-sm-2 control-label">Customer</label>
 					<div class="col-sm-10">
-					  <select name="color" class="form-control" id="color">
+					  <select name="customer_id" class="form-control" id="customer_id">
 						  <option value="">Choose</option>
-						  <option value="#0071c5">Service 1</option>
-						  <option value="#40E0D0">Service 2</option>
+						 <?php foreach($customers as $customer):
+
+						 	echo '<option value="'.$customer->id.'">'.$customer->name.'</option>';
+						 endforeach; ?>
+						  
+						</select>
+					</div>
+				  </div>
+
+				  <div class="form-group">
+					<label for="color" class="col-sm-2 control-label">Service</label>
+					<div class="col-sm-10">
+					  <select name="service_id" class="form-control" id="service_id">
+						  <option value="">Choose</option>
+						 <?php foreach($services as $service):
+
+						 	echo '<option value="'.$service->id.'">'.$service->title.': '.$service->duration.' min</option>';
+						 endforeach; ?>
 						  
 						</select>
 					</div>
@@ -154,9 +180,9 @@
 					<div class="col-sm-10">
 					  <select name="color" class="form-control" id="color">
 						  <option value="">Choose</option>
-						  <option value="#0071c5">Service 1</option>
-						  <option value="#40E0D0">Service 2</option>
-						  
+						  @foreach ($services as $service)
+						  	<option value="{{$service->title}}">{{$service->title}}: {{$service->duration} min}</option>
+						  @endforeach
 						</select>
 					</div>
 				  </div>
@@ -236,25 +262,25 @@
 			events: [
 			<?php foreach($bookings as $booking): 
 			
-				$start = explode(" ", $booking['estart']);
-				$end = explode(" ", $booking['eend']);
+				$start = explode(" ", $booking->estart);
+				$end = explode(" ", $booking->eend);
 				if($start[1] == '00:00:00'){
 					$start = $start[0];
 				}else{
-					$start = $booking['estart'];
+					$start = $booking->estart;
 				}
 				if($end[1] == '00:00:00'){
 					$end = $end[0];
 				}else{
-					$end = $booking['eend'];
+					$end = $booking->eend;
 				}
 			?>
 				{
-					id: '<?php echo $booking['id']; ?>',
-					title: '<?php echo $booking['title']; ?>',
+					id: '<?php echo $booking->id; ?>',
+					title: '<?php echo $booking->title.": ".$booking->name." with ".$booking->employee_name; ?>',
 					start: '<?php echo $start; ?>',
 					end: '<?php echo $end; ?>',
-					color: '<?php echo $booking['color']; ?>',
+					color: '<?php echo $booking->color; ?>',
 				},
 			<?php endforeach; ?>
 			]

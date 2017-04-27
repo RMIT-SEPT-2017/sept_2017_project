@@ -7,6 +7,7 @@
             <script src="{{ asset('FullCalendar/moment/min/moment.min.js') }}"></script>
             <script src="{{ asset('FullCalendar/fullcalendar/dist/fullcalendar.js') }}"></script>
    
+   
             <script>
          $(document).ready(function() {
 		
