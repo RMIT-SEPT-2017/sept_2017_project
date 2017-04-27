@@ -17,12 +17,7 @@
         position: relative;
         width: 480px;
       }
-      #autocomplete {
-        position: absolute;
-        top: 0px;
-        left: 0px;
-        width: 99%;
-      }
+      
       .label {
         text-align: right;
         font-weight: bold;

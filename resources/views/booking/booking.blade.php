@@ -1,4 +1,8 @@
-<!DOCTYPE html>
+<!--USER NON ADMIN-->
+<!doctype html>
+<html>
+<head>
+@include('layouts.head')
 <html lang="en">
 
 <head>
@@ -9,7 +13,6 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Bare - Start Bootstrap Template</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -21,7 +24,7 @@
     <!-- Custom CSS -->
     <style>
     body {
-        padding-top: 70px;
+        padding-top: 0px;
         /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
     }
 	#calendar {
@@ -31,6 +34,13 @@
 		float: none;
 		margin: 0 auto;
 	}
+    .form-horizontal .control-label {
+        padding-top: 7px;
+        margin-bottom: 0;
+        text-align: right;
+        color: #333;
+        font-size: small;
+    }
     </style>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -43,33 +53,7 @@
 </head>
 
 <body>
-
-    <!-- Navigation -->
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">Free Calendar</a>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav">
-                    <li>
-                        <a href="#">Menu</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </div>
-        <!-- /.container -->
-    </nav>
-
+    @include('layouts.navAdmin') 
     <!-- Page Content -->
     <div class="container">
 
@@ -140,7 +124,7 @@
 					</div>
 				  </div>
 				  <div class="form-group">
-					<label for="start" class="col-sm-2 control-label">Start date</label>
+					<label for="start" class="col-sm-2 control-label">Time</label>
 					<div class="col-sm-10">
 					  <input type="text" name="start" class="form-control" id="start" readonly>
 					</div>
@@ -228,10 +212,10 @@
 			header: {
 				left: 'prev,next today',
 				center: 'title',
-				right: 'month,basicWeek,basicDay'
+				right: 'month,agendaWeek,agendaDay'
 			},
-			defaultDate: '2016-01-12',
 			editable: true,
+            defaultView: 'agendaWeek',
 			eventLimit: true, // allow "more" link when too many events
 			selectable: true,
 			selectHelper: true,

@@ -1,3 +1,4 @@
+<!--ADMINADMINADMINADMINADMINADMINADMINADMINADMINADMINADMINADMINADMINADMINADMINADMIN-->
 <!doctype html>
 <html>
 <head>
@@ -15,14 +16,23 @@
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 	
-	<!-- FullCalendar -->
+    <!-- FullCalendar -->
 	<link href='css/fullcalendar.css' rel='stylesheet' />
+    <!-- jQuery Version 1.11.1 -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+	
+	<!-- FullCalendar -->
+	<script src='js/moment.min.js'></script>
+	<script src='js/fullcalendar.min.js'></script>
 
 
     <!-- Custom CSS -->
     <style>
     body {
-        padding-top: 70px;
+        padding-top: 0px;
         /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
     }
 	#calendar {
@@ -32,17 +42,17 @@
 		float: none;
 		margin: 0 auto;
 	}
+        .form-horizontal .control-label {
+        padding-top: 7px;
+        margin-bottom: 0;
+        text-align: right;
+        color: #333;
+        font-size: small;
+    }
     </style>
 </head>
 <body>
 @include('layouts.navAdmin') 
-
-
-
-
-
-
-
     <!-- Page Content -->
     <div class="container">
 
@@ -113,7 +123,7 @@
 					</div>
 				  </div>
 				  <div class="form-group">
-					<label for="start" class="col-sm-2 control-label">Start date</label>
+					<label for="start" class="col-sm-2 control-label">Time</label>
 					<div class="col-sm-10">
 					  <input type="text" name="start" class="form-control" id="start" readonly>
 					</div>
@@ -182,16 +192,6 @@
 
     </div>
     <!-- /.container -->
-
-    <!-- jQuery Version 1.11.1 -->
-    <script src="js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-	
-	<!-- FullCalendar -->
-	<script src='js/moment.min.js'></script>
-	<script src='js/fullcalendar.min.js'></script>
 	
 	<script>
 
@@ -201,7 +201,7 @@
 			header: {
 				left: 'prev,next today',
 				center: 'title',
-				right: 'month,basicWeek,basicDay'
+				right: 'month,agendaWeek,agendaDay'
 			},
 			defaultDate: '2016-01-12',
 			editable: true,
