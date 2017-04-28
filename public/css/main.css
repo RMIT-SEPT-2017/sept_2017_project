@@ -227,6 +227,32 @@ body {
     -moz-transition:0.5s all;
     -ms-transition:0.5s all;
 }
+select {
+   background: #005696;
+   width: 60%;
+   padding: 5px;
+   font-size: 16px;
+   font-family:'Josefin Sans', sans-serif;
+   font color:white;
+   line-height: 1;
+   border: 1;
+   border-radius: 5;
+   height: 34px;
+   color: white;
+    padding:10px 31px;
+	outline:none;
+    font-size: 1.1em;
+    cursor: pointer;
+	letter-spacing: px;
+	font-weight: 400;
+	font-family: 'Josefin Sans', sans-serif;
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+	text-align: left;
+   }
 .sub-1 img {
     border-radius: 50%;
 }

@@ -75,6 +75,18 @@ class AdminController extends Controller
     	return view('admin.create_service');
     }
     
+    public function viewServices()
+    {
+        $admin = Auth::user()->admin;
+    	if(!$admin){
+    		return redirect('home');
+    	}
+        $services = DB::table('services')
+            ->select('title', 'duration')
+            ->get( );
+        return view('admin.create_service')->with('services', $services);
+    }
+    
     public function bookings()
     {	
     	$admin = Auth::user()->admin;

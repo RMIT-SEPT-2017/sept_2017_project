@@ -20,6 +20,8 @@ Route::post('update_employee', ['as' => 'update_employee', 'uses' => 'EmployeeCo
 Route::post('update_service', ['as' => 'update_service', 'uses' => 'ServiceController@updateServices']);
 Route::post('add_booking', ['as' => 'add_booking', 'uses' => 'BookingController@addBooking']);
 Route::post('update_employee_times', ['as' => 'update_employee_times', 'uses' => 'EmployeeTimesController@updateEmployeeTimes']);
+
+
 Route::get('/logout', 'AdminController@logoutUser');
 Route::get('/admin', 'AdminController@index');
 Route::get('/create_employee', 'AdminController@createEmployee');
@@ -28,6 +30,9 @@ Route::get('/add_employee_times', 'AdminController@employeeTimes');
 Route::get('/view_bookings', 'AdminController@bookings');
 Route::get('/create_service', 'AdminController@createService');
 Route::get('/confirm_service', 'AdminController@confirmService');
+Route::get('/create_service', 'AdminController@viewServices');
+
+
 
 //Route::get('/booking/{date}','BookingController@update');
 //Route::resource('/booking', 'BookingController');

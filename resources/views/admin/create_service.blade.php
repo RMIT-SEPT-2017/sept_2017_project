@@ -15,14 +15,98 @@
 }
 
 </script>
+    <style>
+        body {
+          font-family: "Helvetica Neue", Helvetica, Arial;
+          font-size: 14px;
+          line-height: 20px;
+          font-weight: 400;
+          color: #3b3b3b;
+          background: #2b2b2b;
+        }
+
+        .wrapper {
+          margin: 0 auto;
+          padding: 40px;
+          max-width: 800px;
+        }
+
+        .table {
+          margin: 0 0 40px 0;
+          width: 100%;
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+          display: table;
+        }
+        @media screen and (max-width: 580px) {
+          .table {
+            display: block;
+          }
+        }
+
+        .row {
+          display: table-row;
+          background: #f6f6f6;
+        }
+        .row:nth-of-type(odd) {
+          background: #e9e9e9;
+        }
+        .row.header {
+          font-weight: 900;
+          color: #ffffff;
+          background: #ea6153;
+        }
+        .row.blue {
+          background: #2980b9;
+        }
+        @media screen and (max-width: 580px) {
+          .row {
+            padding: 8px 0;
+            display: block;
+          }
+        }
+        
+        .cell {
+          padding: 6px 12px;
+          display: table-cell;
+        }
+        @media screen and (max-width: 580px) {
+          .cell {
+            padding: 2px 12px;
+            display: block;
+          }
+        }
+    </style>
 </head>
 <body>
 @include('layouts.navAdmin')
 
-<div class="form-content">
+
+
+    <div class="form-content">
     <div class="sub-form">
         <div class="sub-1">
-            <a>Welcome</a>
+            <h2>Current Services</h2>
+                <div class="wrapper">
+                    <div class="table">
+            <div class="row header blue">
+                <div class="cell">Service</div>
+                <div class="cell">Duration</div>
+            </div>
+    @foreach ($services as $services)
+                        <div class="row">
+                <div class="cell">{{$services->title}}</div>
+                <div class="cell">{{$services->duration}}</div>
+            </div>
+	@endforeach
+        </div>    
+  </div>
+        </div>
+            
+    </div>
+</div>
+    <div class="form-content">
+    <div class="sub-form">
+        <div class="sub-1">
             <h2>Add Service</h2>
         </div>
             <form class="addService" method="POST" action="{{ action('ServiceController@updateServices') }}" onsubmit="return validateForm();">
@@ -51,6 +135,7 @@
             <label id="validationWarn" class="warning"></label>
     </div>
 </div>
+
 
 @include('layouts.foot')
 

@@ -23,6 +23,7 @@ class ServiceController extends Controller
 
     public static function checkDuration($duration)
     {
+        
         if (!is_numeric($duration))return false;
         return true;
     }
