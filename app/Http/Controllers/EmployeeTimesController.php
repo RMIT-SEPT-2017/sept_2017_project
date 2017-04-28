@@ -28,7 +28,7 @@ class EmployeeTimesController extends Controller
                     //&&$this->checkDate($date)^^
                     $employeeTime = new employeeTime;
                     $employeeTime->empid = $id;
-                    $employeeTime->day = $day;
+                    $employeeTime->day = $i+1;
                     $employeeTime->start = $start;
                     $employeeTime->end = $end;
                     $employeeTime->save();

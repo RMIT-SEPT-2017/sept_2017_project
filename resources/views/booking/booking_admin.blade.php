@@ -1,4 +1,4 @@
-<!--ADMINADMINADMINADMINADMINADMINADMINADMINADMINADMINADMINADMINADMINADMINADMINADMIN-->
+<!--ADMIN-->
 <!doctype html>
 <html>
 <head>
@@ -49,6 +49,10 @@
         color: #333;
         font-size: small;
     }
+    #error{
+    	color: red;
+    	text-align: center;
+    }
     </style>
 </head>
 <body>
@@ -82,7 +86,7 @@
 				  <div class="form-group">
 					<label for="title" class="col-sm-2 control-label">Employee</label>
 					<div class="col-sm-10">
-					  <select name="employee_id" class="form-control" id="employee_id">
+					  <select name="employee_id" class="form-control" id="employee_id" required>
 						  <option value="">Choose</option>
 						 <?php foreach($employees as $employee):
 
@@ -98,7 +102,7 @@
 				  <div class="form-group">
 					<label for="title" class="col-sm-2 control-label">Customer</label>
 					<div class="col-sm-10">
-					  <select name="customer_id" class="form-control" id="customer_id">
+					  <select name="customer_id" class="form-control" id="customer_id" required>
 						  <option value="">Choose</option>
 						 <?php foreach($customers as $customer):
 
@@ -112,7 +116,7 @@
 				  <div class="form-group">
 					<label for="color" class="col-sm-2 control-label">Service</label>
 					<div class="col-sm-10">
-					  <select name="service_id" class="form-control" id="service_id">
+					  <select name="service_id" class="form-control" id="service_id" required>
 						  <option value="">Choose</option>
 						 <?php foreach($services as $service):
 
@@ -123,9 +127,15 @@
 					</div>
 				  </div>
 				  <div class="form-group">
-					<label for="start" class="col-sm-2 control-label">Time</label>
+					<label for="date" class="col-sm-2 control-label">Date</label>
 					<div class="col-sm-10">
-					  <input type="text" name="start" class="form-control" id="start" readonly>
+					  <input type="text" name="date" class="form-control" id="date" readonly>
+					</div>
+				  </div>
+				  <div class="form-group">
+					<label for="time" class="col-sm-2 control-label">Time</label>
+					<div class="col-sm-10">
+					  <input type="time" step="900" value="09:00" name="time" id="time"> <!-- 5 min step -->
 					</div>
 				  </div>
 				
@@ -189,8 +199,25 @@
 			</div>
 		  </div>
 		</div>
-
+		<div>
+			<label id="error">
+				<?php
+				if(isset($_GET['error'])) {
+					if( $_GET["error"]=='InPast') {
+				      echo "*Sorry the date/time you entered was in the past.";
+				   	}
+				   	if( $_GET["error"]=='EmployeeNotAvailable') {
+				      echo "*Sorry the employee use selected is not available at that time.";
+				   	}
+				   	if( $_GET["error"]=='Overlap') {
+				      echo "*Sorry the employee use selected is not available as they are busy.";
+				   	}
+				}
+			   	?>
+			</label>
+		</div>
     </div>
+
     <!-- /.container -->
 	
 	<script>
@@ -203,15 +230,15 @@
 				center: 'title',
 				right: 'month,agendaWeek,agendaDay'
 			},
-			defaultDate: '2016-01-12',
+			defaultDate: '2017-05-01',
 			editable: true,
 			eventLimit: true, // allow "more" link when too many events
 			selectable: true,
 			selectHelper: true,
 			select: function(start, end) {
 				
-				$('#ModalAdd #start').val(moment(start).format('YYYY-MM-DD HH:mm:ss'));
-				$('#ModalAdd #end').val(moment(end).format('YYYY-MM-DD HH:mm:ss'));
+				$('#ModalAdd #date').val(moment(start).format('YYYY-MM-DD'));
+				$('#ModalAdd #end').val(moment(end).format('YYYY-MM-DD'));
 				$('#ModalAdd').modal('show');
 			},
 			eventRender: function(event, element) {
@@ -232,6 +259,7 @@
 				edit(event);
 
 			},
+
 			events: [
 			<?php foreach($bookings as $booking): 
 			
@@ -289,7 +317,7 @@
 		}
 		
 	});
-
+	
 </script>
 
 
