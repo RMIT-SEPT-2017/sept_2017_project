@@ -299,7 +299,7 @@
 					title: '<?php echo $booking->title.": ".$booking->name." with ".$booking->employee_name; ?>',
 					start: '<?php echo $start; ?>',
 					end: '<?php echo $end; ?>',
-					color: '<?php echo $booking->color; ?>',
+					color: '#<?php echo $booking->color; ?>',
 				},
 			<?php endforeach; ?>
 			]

@@ -11,6 +11,8 @@
             document.getElementById('validationWarn').innerHTML = "Please enter a service title";
             return false;   
         }
+        
+        var color = document.getElementById("hex-str").value;
          
 }
 
@@ -75,6 +77,13 @@
             display: block;
           }
         }
+        input.jscolor {
+            border-radius: 50px;
+            border: none;
+            width: 50px;
+            height: 50px;
+            margin-left: 20px;
+        }
     </style>
 </head>
 <body>
@@ -113,7 +122,7 @@
 		<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
 	        <label class="input">Service Name:</label>
 	        <input placeholder="" name="title" type="text" id="title">
-	        <label class="input">Duration of Service:</label>
+	        <label class="input">Duration of Service & Display Colour:</label>
 		<select name="duration" type="text" id="duration">
 			<option value="15">15 minutes</option>
 			<option value="30">30 minutes</option>
@@ -128,6 +137,8 @@
 			<option value="165">165 minutes</option>
 			<option value="180">180 minutes</option>
 		</select>
+                <script src="js/jscolor.js"></script>
+                <input name="color" class="jscolor" value="#005696">
 		<div class="sub">
 		    <input type="submit" value="Submit" ></a>
 		</div>

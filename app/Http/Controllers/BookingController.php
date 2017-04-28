@@ -112,7 +112,6 @@ class BookingController extends Controller
 	        $event->service_id = $service;
 	        $event->employee_id = $emp;
 	        $event->customer_id = $cust;
-	        $event->color = 0;
 	        $event->estart = $start;
 	        $event->eend = $end;
 	        $event->save();

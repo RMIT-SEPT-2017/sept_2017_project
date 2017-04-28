@@ -12,10 +12,12 @@ class ServiceController extends Controller
     {
     	$title = Input::get('title');
     	$duration = Input::get('duration');
+    	$color = Input::get('color');
     	if($this->checkDuration($duration)){
 	    	$service = new service;
 	        $service->title = $title;
 	        $service->duration = $duration;
+            $service->color = $color;
 	        $service->save();
 	    } 
         return redirect('/confirm_service');
