@@ -207,7 +207,10 @@
 				      echo "*Sorry the date/time you entered was in the past.";
 				   	}
 				   	if( $_GET["error"]=='EmployeeNotAvailable') {
-				      echo "*Sorry the employee use selected is not available.";
+				      echo "*Sorry the employee use selected is not available at that time.";
+				   	}
+				   	if( $_GET["error"]=='Overlap') {
+				      echo "*Sorry the employee use selected is not available as they are busy.";
 				   	}
 				}
 			   	?>
