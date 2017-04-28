@@ -12,19 +12,13 @@ class ServiceController extends Controller
     {
     	$title = Input::get('title');
     	$duration = Input::get('duration');
-    	if($this->checkName($title)&&$this->checkDuration($duration)){
+    	if($this->checkDuration($duration)){
 	    	$service = new service;
 	        $service->title = $title;
 	        $service->duration = $duration;
 	        $service->save();
 	    } 
-        return redirect('/create_service');
-    }
-
-    public static function checkName($name)
-    {
-        if (!preg_match('/^([^0-9!@#$%^&*()_+=]*)$/', $name))return false;
-        return true;
+        return redirect('/confirm_service');
     }
 
     public static function checkDuration($duration)

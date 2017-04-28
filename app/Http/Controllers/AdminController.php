@@ -82,4 +82,13 @@ class AdminController extends Controller
     		return redirect('home');
     	}
     }	
+    
+    public function confirmService()
+    {	
+    	$admin = Auth::user()->admin;
+    	if(!$admin){
+    		return redirect('home');
+    	}
+    	return view('admin.confirm_service');
+    }	
 }

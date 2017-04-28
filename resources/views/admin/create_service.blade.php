@@ -6,12 +6,12 @@
     function validateForm() { 
         var title = document.getElementById("title").value;
 
-        document.getElementById('titleValidation').innerHTML = "";
-        re = /^([^0-9!@#$%^&*()_+=]*)$/;
-        if(!re.test(name)) {
-            document.getElementById('titleValidation').innerHTML = "Please enter a valid service title;
+        document.getElementById('validationWarn').innerHTML = "";
+        if(!(title)) {
+            document.getElementById('validationWarn').innerHTML = "Please enter a service title";
             return false;   
         }
+         
 }
 
 </script>
@@ -48,7 +48,7 @@
 		    <input type="submit" value="Submit" ></a>
 		</div>
             </form>
-            <label id="titleValidation" class="warning"></label>
+            <label id="validationWarn" class="warning"></label>
     </div>
 </div>
 

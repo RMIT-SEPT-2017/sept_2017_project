@@ -27,6 +27,7 @@ Route::get('/view_employees', 'AdminController@viewEmployee');
 Route::get('/add_employee_times', 'AdminController@employeeTimes');
 Route::get('/view_bookings', 'AdminController@bookings');
 Route::get('/create_service', 'AdminController@createService');
+Route::get('/confirm_service', 'AdminController@confirmService');
 
 //Route::get('/booking/{date}','BookingController@update');
 //Route::resource('/booking', 'BookingController');

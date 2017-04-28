@@ -120,6 +120,37 @@ body {
 	
 }
 
+.sub-form input[type="button"] {
+    color: white;
+    background: #005696;
+    border: none;
+    padding:10px 31px;
+	outline:none;
+    font-size: 1.1em;
+    cursor: pointer;
+	letter-spacing: 1px;
+	font-weight: 400;
+	font-family: 'Josefin Sans', sans-serif;
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+    width: 87%;
+	text-align: center;
+}
+
+.sub-form input[type="button"]:hover {
+    background: #fff;
+    color: black;
+	transition:0.5s all;
+	-webkit-transition:0.5s all;
+	-o-transition:0.5s all;
+	-moz-transition:0.5s all;
+	-ms-transition:0.5s all;
+	
+}
+
 .sub-form input[type="change"] {
     color: white;
     background: #767676;
