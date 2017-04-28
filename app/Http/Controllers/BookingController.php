@@ -36,19 +36,25 @@ class BookingController extends Controller
 		    'employees' => $employees,
 		    'customers' => $customers
 		);
-
-        $admin = Auth::user()->admin;
-    	if(!$admin){ 
-    		return view('booking.booking')->with($data);
-    	}
-    	return view('booking.booking_admin')->with($data);
+        if($user = Auth::user())
+        {
+            $admin = Auth::user()->admin;
+        	if(!$admin){ 
+        		return view('booking.booking')->with($data);
+        	}
+        	return view('booking.booking_admin')->with($data);
+        }
+        return redirect('home');
     }	
     public function addBooking(){
     	$service = Input::get('service_id');
     	$emp = Input::get('employee_id');
     	$cust = Input::get('customer_id');
-    	$start = Input::get('start');
+    	$date = Input::get('date');
+        $time = Input::get('time');
+        $start = $date.' '.$time.':00';
 
+        echo $start;
     	$duration = DB::table('services')->where('id', $service)->value('duration');
 		$end = new DateTime($start);
 		$end->add(new DateInterval('PT' . $duration . 'M'));
@@ -65,6 +71,6 @@ class BookingController extends Controller
 	        $event->estart = $start;
 	        $event->eend = $end;
 	        $event->save();
-	        return redirect('booking');
+	        //return redirect('booking');
    	}
 }

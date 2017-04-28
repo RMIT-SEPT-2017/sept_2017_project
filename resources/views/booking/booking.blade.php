@@ -127,6 +127,7 @@
 					<label for="start" class="col-sm-2 control-label">Time</label>
 					<div class="col-sm-10">
 					  <input type="text" name="start" class="form-control" id="start" readonly>
+					  
 					</div>
 				  </div>
 				
