@@ -65,6 +65,15 @@ class AdminController extends Controller
             ->get( );
         return view('admin.view_employees')->with('employeeTimes', $employeeTimes);
     }
+
+    public function createService()
+    {
+    	$admin = Auth::user()->admin;
+    	if(!$admin){
+    		return redirect('home');
+    	}
+    	return view('admin.create_service');
+    }
     
     public function bookings()
     {	

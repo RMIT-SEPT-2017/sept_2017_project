@@ -17,6 +17,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index');
 Route::get('booking', 'BookingController@index');
 Route::post('update_employee', ['as' => 'update_employee', 'uses' => 'EmployeeController@updateEmployees']);
+Route::post('update_service', ['as' => 'update_service', 'uses' => 'ServiceController@updateServices']);
 Route::post('add_booking', ['as' => 'add_booking', 'uses' => 'BookingController@addBooking']);
 Route::post('update_employee_times', ['as' => 'update_employee_times', 'uses' => 'EmployeeTimesController@updateEmployeeTimes']);
 Route::get('/logout', 'AdminController@logoutUser');
@@ -25,6 +26,7 @@ Route::get('/create_employee', 'AdminController@createEmployee');
 Route::get('/view_employees', 'AdminController@viewEmployee');
 Route::get('/add_employee_times', 'AdminController@employeeTimes');
 Route::get('/view_bookings', 'AdminController@bookings');
+Route::get('/create_service', 'AdminController@createService');
 
 //Route::get('/booking/{date}','BookingController@update');
 //Route::resource('/booking', 'BookingController');

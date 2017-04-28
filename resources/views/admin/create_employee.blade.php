@@ -7,16 +7,15 @@
         var email = document.getElementById("email").value;
         var name = document.getElementById("name").value;
 
-        document.getElementById('emailValidation').innerHTML = "";
-        document.getElementById('nameValidation').innerHTML = "";
+        document.getElementById('validationWarn').innerHTML = "";
         var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         if(!re.test(email)) {
-            document.getElementById('emailValidation').innerHTML = "Please enter a valid email address";
+            document.getElementById('validationWarn').innerHTML = "Please enter a valid email address";
             return false;   
         }
         re = /^([^0-9!@#$%^&*()_+=]*)$/;
         if(!re.test(name)) {
-            document.getElementById('nameValidation').innerHTML = "Please enter a valid name";
+            document.getElementById('validationWarn').innerHTML = "Please enter a valid name";
             return false;   
         }
          
@@ -43,8 +42,7 @@
 
                 </div>
             </form>
-            <label id="emailValidation" class="warning"></label>
-            <label id="nameValidation" class="warning"></label>
+            <label id="validationWarn" class="warning"></label>
     </div>
 </div>
 
