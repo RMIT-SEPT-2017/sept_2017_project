@@ -57,8 +57,7 @@ class BookingController extends Controller
         echo $start;
     	$duration = DB::table('services')->where('id', $service)->value('duration');
 		$end = new DateTime($start);
-		$end->add(new DateInterval('PT' . $duration . 'M'));
-
+ 
 		$end = $end->format('Y-m-d H:i:s');
 
 		//end = $end->format('Y-m-d H:i:s');
@@ -71,6 +70,6 @@ class BookingController extends Controller
 	        $event->estart = $start;
 	        $event->eend = $end;
 	        $event->save();
-	        //return redirect('booking');
+	        return redirect('booking');
    	}
 }
