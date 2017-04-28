@@ -49,6 +49,10 @@
         color: #333;
         font-size: small;
     }
+    #error{
+    	color: red;
+    	text-align: center;
+    }
     </style>
 </head>
 <body>
@@ -195,8 +199,22 @@
 			</div>
 		  </div>
 		</div>
-
+		<div>
+			<label id="error">
+				<?php
+				if(isset($_GET['error'])) {
+					if( $_GET["error"]=='InPast') {
+				      echo "*Sorry the date/time you entered was in the past.";
+				   	}
+				   	if( $_GET["error"]=='EmployeeNotAvailable') {
+				      echo "*Sorry the employee use selected is not available.";
+				   	}
+				}
+			   	?>
+			</label>
+		</div>
     </div>
+
     <!-- /.container -->
 	
 	<script>
@@ -238,6 +256,7 @@
 				edit(event);
 
 			},
+
 			events: [
 			<?php foreach($bookings as $booking): 
 			
@@ -295,7 +314,7 @@
 		}
 		
 	});
-
+	
 </script>
 
 
