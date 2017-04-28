@@ -101,7 +101,10 @@ class BookingController extends Controller
             if($booking->estart < $end&&$end <= $booking->eend){
                 echo "end overlap wwith".$booking->id;
                 return redirect('booking?error=Overlap');
-                
+            }
+            if($start <= $booking->estart&&$booking->estart < $end){
+                echo "start overlap wwith".$booking->id;
+                return redirect('booking?error=Overlap');
             }
         }
         
