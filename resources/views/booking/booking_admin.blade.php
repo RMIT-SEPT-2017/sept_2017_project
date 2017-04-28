@@ -248,7 +248,6 @@
 				center: 'title',
 				right: 'month,agendaWeek,agendaDay'
 			},
-			defaultDate: '2017-05-01',
 			editable: true,
 			eventLimit: true, // allow "more" link when too many events
 			selectable: true,

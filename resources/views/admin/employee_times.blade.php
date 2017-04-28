@@ -68,6 +68,13 @@
 
 
             <form id="day_form" name="day_form" action="{{ action('EmployeeTimesController@updateEmployeeTimes') }}" method="POST" class="ajax">
+                <label >Select Employee</label><br>
+                        <select name="id">
+                        <?php $i = 0?>
+                        @foreach ($ids as $id)
+                                  <option value="{{$id}}">{{$names[$i++]}}</option>                  
+                        @endforeach
+                        </select><br><br>
 
             <label id="monday">Monday</label>
                 <input type="hidden" id="mon" name="day1" value="1" />
@@ -100,13 +107,6 @@
 -->
                     
                 <div class="sub">
-                        <label >Select Employee</label><br>
-                        <select name="id">
-                        <?php $i = 0?>
-                        @foreach ($ids as $id)
-                                  <option value="{{$id}}">{{$names[$i++]}}</option>                  
-                        @endforeach
-                        </select><br><br>
                         <input type="submit" value="Submit"></a>
                         <a href="{{ url('/view_employees') }}"><input type="change" value="View all employees">
                     </div>

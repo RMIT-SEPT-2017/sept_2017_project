@@ -47,8 +47,6 @@ class BookingController extends Controller
         return redirect('home');
     }	
     public function addBooking(){
-
-
         date_default_timezone_set('Australia/Melbourne'); //sets time to melbourne
     	$service = Input::get('service_id');
     	$emp = Input::get('employee_id');
