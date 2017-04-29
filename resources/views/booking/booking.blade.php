@@ -1,24 +1,32 @@
-<!--USER NON ADMIN-->
+<!--ADMIN-->
 <!doctype html>
 <html>
 <head>
 @include('layouts.head')
-<html lang="en">
 
-<head>
 
-    <meta charset="utf-8">
+<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
 
+    <title>Bookings</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
 	
-	<!-- FullCalendar -->
+    <!-- FullCalendar -->
 	<link href='css/fullcalendar.css' rel='stylesheet' />
+    <!-- jQuery Version 1.11.1 -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+	
+	<!-- FullCalendar -->
+	<script src='js/moment.min.js'></script>
+	<script src='js/fullcalendar.min.js'></script>
 
 
     <!-- Custom CSS -->
@@ -34,12 +42,16 @@
 		float: none;
 		margin: 0 auto;
 	}
-    .form-horizontal .control-label {
+        .form-horizontal .control-label {
         padding-top: 7px;
         margin-bottom: 0;
         text-align: right;
         color: #333;
         font-size: small;
+    }
+    #error{
+    	color: red;
+    	text-align: center;
     }
     input#time {
     display: block;
@@ -60,18 +72,9 @@
     transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
 }
     </style>
-
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
 </head>
-
 <body>
-    @include('layouts.navAdmin') 
+@include('layouts.nav') 
     <!-- Page Content -->
     <div class="container">
 
@@ -84,8 +87,8 @@
 			
         </div>
         <!-- /.row -->
-		
-		<!-- Modal -->
+
+        <!-- Modal -->
 		<div class="modal fade" id="ModalAdd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 		  <div class="modal-dialog" role="document">
 			<div class="modal-content">
@@ -97,11 +100,10 @@
 				<h4 class="modal-title" id="myModalLabel">Add Event</h4>
 			  </div>
 			  <div class="modal-body">
-				
 				  <div class="form-group">
 					<label for="title" class="col-sm-2 control-label">Employee</label>
 					<div class="col-sm-10">
-					  <select name="employee_id" class="form-control" id="employee_id">
+					  <select name="employee_id" class="form-control" id="employee_id" required>
 						  <option value="">Choose</option>
 						 <?php foreach($employees as $employee):
 
@@ -112,12 +114,10 @@
 					</div>
 				  </div>
 
-
-
 				  <div class="form-group">
 					<label for="title" class="col-sm-2 control-label">Customer</label>
 					<div class="col-sm-10">
-					  <select name="customer_id" class="form-control" id="customer_id">
+					  <select name="customer_id" class="form-control" id="customer_id" required>
 						  <option value="">Choose</option>
 						 <?php foreach($customers as $customer):
 
@@ -131,7 +131,7 @@
 				  <div class="form-group">
 					<label for="color" class="col-sm-2 control-label">Service</label>
 					<div class="col-sm-10">
-					  <select name="service_id" class="form-control" id="service_id">
+					  <select name="service_id" class="form-control" id="service_id" required>
 						  <option value="">Choose</option>
 						 <?php foreach($services as $service):
 
@@ -142,10 +142,15 @@
 					</div>
 				  </div>
 				  <div class="form-group">
-					<label for="start" class="col-sm-2 control-label">Time</label>
+					<label for="date" class="col-sm-2 control-label">Date</label>
 					<div class="col-sm-10">
-					  <input type="text" name="start" class="form-control" id="start" readonly>
-					  
+					  <input type="text" name="date" class="form-control" id="date" readonly>
+					</div>
+				  </div>
+				  <div class="form-group">
+					<label for="time" class="col-sm-2 control-label">Time</label>
+					<div class="col-sm-10">
+					  <input type="time" step="900" value="09:00" name="time" id="time"> <!-- 5 min step -->
 					</div>
 				  </div>
 				
@@ -184,7 +189,7 @@
 					  <select name="color" class="form-control" id="color">
 						  <option value="">Choose</option>
 						  @foreach ($services as $service)
-						  	<option value="{{$service->title}}">{{$service->title}}: {{$service->duration} min}</option>
+						  	<option value="{{$service->title}}">{{$service->title}}: {{$service->duration}} min</option>
 						  @endforeach
 						</select>
 					</div>
@@ -209,19 +214,26 @@
 			</div>
 		  </div>
 		</div>
-
+		<div>
+			<label id="error">
+				<?php
+				if(isset($_GET['error'])) {
+					if( $_GET["error"]=='InPast') {
+				      echo "* Sorry the date/time you entered was in the past.";
+				   	}
+				   	if( $_GET["error"]=='EmployeeNotAvailable') {
+				      echo "* Sorry the employee you selected is not available at that time.";
+				   	}
+				   	if( $_GET["error"]=='Overlap') {
+				      echo "* Sorry the employee you selected is not available as they are busy.";
+				   	}
+				}
+			   	?>
+			</label>
+		</div>
     </div>
+
     <!-- /.container -->
-
-    <!-- jQuery Version 1.11.1 -->
-    <script src="js/jquery.js"></script>
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-	
-	<!-- FullCalendar -->
-	<script src='js/moment.min.js'></script>
-	<script src='js/fullcalendar.min.js'></script>
 	
 	<script>
 
@@ -233,15 +245,26 @@
 				center: 'title',
 				right: 'month,agendaWeek,agendaDay'
 			},
-			editable: true,
+            businessHours: {
+                // days of week. an array of zero-based day of week integers (0=Sunday)
+                dow: [ 1, 2, 3, 4, 5 ], // Monday - Thursday
+
+                start: '9:00', // a start time (10am in this example)
+                end: '17:00', // an end time (6pm in this example)
+            },
+			editable: false,
+            allDaySlot: false,
             defaultView: 'agendaWeek',
+            minTime: "08:00:00",
+            maxTime: "18:00:00",
+            slotDuration: '00:15:00',
 			eventLimit: true, // allow "more" link when too many events
 			selectable: true,
 			selectHelper: true,
 			select: function(start, end) {
 				
-				$('#ModalAdd #start').val(moment(start).format('YYYY-MM-DD HH:mm:ss'));
-				$('#ModalAdd #end').val(moment(end).format('YYYY-MM-DD HH:mm:ss'));
+				$('#ModalAdd #date').val(moment(start).format('YYYY-MM-DD'));
+				$('#ModalAdd #end').val(moment(end).format('YYYY-MM-DD'));
 				$('#ModalAdd').modal('show');
 			},
 			eventRender: function(event, element) {
@@ -262,6 +285,7 @@
 				edit(event);
 
 			},
+
 			events: [
 			<?php foreach($bookings as $booking): 
 			
@@ -280,10 +304,9 @@
 			?>
 				{
 					id: '<?php echo $booking->id; ?>',
-					title: '<?php echo $booking->title.": ".$booking->name." with ".$booking->employee_name; ?>',
+					title: '<?php echo $booking->employee_name; ?> :Unavailable',
 					start: '<?php echo $start; ?>',
 					end: '<?php echo $end; ?>',
-					color: '<?php echo $booking->color; ?>',
 				},
 			<?php endforeach; ?>
 			]
@@ -305,7 +328,7 @@
 			Event[2] = end;
 			
 			$.ajax({
-			 url: 'editEventDate.php',
+			 url: 'editEventDate.php',//doesnt exist?
 			 type: "POST",
 			 data: {Event:Event},
 			 success: function(rep) {
@@ -319,9 +342,9 @@
 		}
 		
 	});
-
+	
 </script>
 
-</body>
 
-</html>
+
+@include('layouts.foot')

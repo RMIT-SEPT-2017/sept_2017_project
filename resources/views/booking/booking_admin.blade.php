@@ -222,13 +222,13 @@
 				<?php
 				if(isset($_GET['error'])) {
 					if( $_GET["error"]=='InPast') {
-				      echo "*Sorry the date/time you entered was in the past.";
+				      echo "* Sorry the date/time you entered was in the past.";
 				   	}
 				   	if( $_GET["error"]=='EmployeeNotAvailable') {
-				      echo "*Sorry the employee use selected is not available at that time.";
+				      echo "* Sorry the employee you selected is not available at that time.";
 				   	}
 				   	if( $_GET["error"]=='Overlap') {
-				      echo "*Sorry the employee use selected is not available as they are busy.";
+				      echo "* Sorry the employee you selected is not available as they are busy.";
 				   	}
 				}
 			   	?>
@@ -321,7 +321,7 @@
 			Event[2] = end;
 			
 			$.ajax({
-			 url: 'editEventDate.php',
+			 url: 'editEventDate.php',//doesnt exist?
 			 type: "POST",
 			 data: {Event:Event},
 			 success: function(rep) {
