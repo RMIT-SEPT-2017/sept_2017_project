@@ -246,9 +246,10 @@
 			header: {
 				left: 'prev,next today',
 				center: 'title',
-				right: 'month,agendaWeek,agendaDay'
+				right: 'month,agendaWeek,agendaDay,listWeek'
 			},
 			editable: true,
+            defaultView: 'listWeek',
 			eventLimit: true, // allow "more" link when too many events
 			selectable: true,
 			selectHelper: true,

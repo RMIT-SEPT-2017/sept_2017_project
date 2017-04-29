@@ -98,13 +98,23 @@
                 <div class="wrapper">
                     <div class="table">
             <div class="row header blue">
+                <div class="cell"> </div>
                 <div class="cell">Service</div>
                 <div class="cell">Duration</div>
+                
             </div>
     @foreach ($services as $services)
                         <div class="row">
+                            <div class="cell">
+                    <button 
+                            class="jscolor {valueElement:null,value:'{{$services->color}}'}" disabled
+                            style="border-radius: 50px; border: none; width: 20px; height: 20px; margin-left: 20px;">
+                    </button>
+                </div>
                 <div class="cell">{{$services->title}}</div>
                 <div class="cell">{{$services->duration}}</div>
+                
+
             </div>
 	@endforeach
         </div>    

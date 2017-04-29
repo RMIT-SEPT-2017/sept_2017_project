@@ -82,7 +82,7 @@ class AdminController extends Controller
     		return redirect('home');
     	}
         $services = DB::table('services')
-            ->select('title', 'duration')
+            ->select('title', 'duration', 'color')
             ->get( );
         return view('admin.create_service')->with('services', $services);
     }
