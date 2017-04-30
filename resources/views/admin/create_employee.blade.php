@@ -6,6 +6,8 @@
     function validateForm() { 
         var email = document.getElementById("email").value;
         var name = document.getElementById("name").value;
+	var lengthEmail = email.length;
+	var lengthName = name.length;
 
         document.getElementById('validationWarn').innerHTML = "";
         var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -18,7 +20,14 @@
             document.getElementById('validationWarn').innerHTML = "Please enter a valid name";
             return false;   
         }
-         
+        if(lengthEmail > 254) {
+            document.getElementById('validationWarn').innerHTML = "Email is too long";
+            return false;   
+        }	
+        if(lengthName > 254) {
+            document.getElementById('validationWarn').innerHTML = "Name is too long";
+            return false;   
+        }	
 }
 
 </script>

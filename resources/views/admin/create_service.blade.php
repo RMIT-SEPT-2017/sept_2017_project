@@ -5,10 +5,15 @@
 <script type="text/javascript">
     function validateForm() { 
         var title = document.getElementById("title").value;
+	var lengthTitle = title.length;
 
         document.getElementById('validationWarn').innerHTML = "";
         if(!(title)) {
             document.getElementById('validationWarn').innerHTML = "Please enter a service title";
+            return false;   
+        }
+        if(lengthTitle > 254) {
+            document.getElementById('validationWarn').innerHTML = "Service title is too long";
             return false;   
         }
         
