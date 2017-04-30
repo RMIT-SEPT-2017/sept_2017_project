@@ -54,7 +54,7 @@ class RegisterController extends Controller
         'route' => 'required|max:255',
 		'locality' => 'required|max:255',
         'administrative_area_level_1' => 'required|max:255',
-        'postal_code' => 'required|max:255',
+        'postal_code' => 'required|digits_between:1,4',
         'country' => 'required|max:255',
 		'password' => 'required|min:6|confirmed',
         ]);

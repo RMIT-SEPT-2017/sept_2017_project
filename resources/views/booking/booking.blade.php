@@ -175,46 +175,7 @@
 		<div class="modal fade" id="ModalEdit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 		  <div class="modal-dialog" role="document">
 			<div class="modal-content">
-			<form class="form-horizontal" method="POST" action="editEventTitle.php">
-			  <div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<h4 class="modal-title" id="myModalLabel">Edit Event</h4>
-			  </div>
-			  <div class="modal-body">
-				
-				  <div class="form-group">
-					<label for="title" class="col-sm-2 control-label">Title</label>
-					<div class="col-sm-10">
-					  <input type="text" name="title" class="form-control" id="title" placeholder="Title">
-					</div>
-				  </div>
-				  <div class="form-group">
-					<label for="color" class="col-sm-2 control-label">Color</label>
-					<div class="col-sm-10">
-					  <select name="color" class="form-control" id="color">
-						  <option value="">Choose</option>
-						  @foreach ($services as $service)
-						  	<option value="{{$service->title}}">{{$service->title}}: {{$service->duration}} min</option>
-						  @endforeach
-						</select>
-					</div>
-				  </div>
-				    <div class="form-group"> 
-						<div class="col-sm-offset-2 col-sm-10">
-						  <div class="checkbox">
-							<label class="text-danger"><input type="checkbox"  name="delete"> Delete event</label>
-						  </div>
-						</div>
-					</div>
-				  
-				  <input type="hidden" name="id" class="form-control" id="id">
-				
-				
-			  </div>
-			  <div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				<button type="submit" class="btn btn-primary">Save changes</button>
-			  </div>
+			<form class="form-horizontal" method="POST" action="">
 			</form>
 			</div>
 		  </div>
