@@ -4,7 +4,6 @@ use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use App\Http\Controllers\EmployeeTimesController;
-use App\Http\Controllers\BookingController;
 class EmployeeTimes extends TestCase
 {
     public function testStartBeforeEnd()
@@ -33,14 +32,11 @@ class EmployeeTimes extends TestCase
     }
     public function testValidDate()
     {
-        //$this->assertTrue(EmployeeTimesController::checkDate('2020-01-01'));
+        $this->assertTrue(EmployeeTimesController::checkDate('2020-01-01'));
     }
     public function testInvalidDate()
     {
-       // $this->assertFalse(EmployeeTimesController::checkDate('1920-01-01'));
+        $this->assertFalse(EmployeeTimesController::checkDate('1920-01-01'));
     }
-    public function testCurrent()
-    {
-        $this->assertTrue(BookingController::test());
-    }
+
 }

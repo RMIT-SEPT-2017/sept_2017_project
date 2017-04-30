@@ -64,9 +64,9 @@ class EmployeeTimesController extends Controller
         }
         return false;
     }
-//    public static function checkDate($date)
-//    {
-//        if(strtotime($date) < strtotime('now')) return false;
-//        return true;
-//    }
+    public static function checkDate($date)
+    {
+        if(strtotime($date) < strtotime('now')) return false;
+        return true;
+    }
 }

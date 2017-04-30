@@ -69,7 +69,6 @@ class BookingController extends Controller
         if (is_numeric($duration)) {
     		$end->add(new DateInterval('PT' . $duration . 'M'));
         }
-        else return false;
 
 		$end = $end->format('Y-m-d H:i:s');
         $today = date("Y-m-d H:i:s");
@@ -84,10 +83,10 @@ class BookingController extends Controller
         if($this->checkPast($start)){
             return redirect('booking?error=InPast');
         }
-        if($this->checkAvailable($start,$end,$date)){
+        if($this->checkAvailable($start,$end,$date,$emp)){
             return redirect('booking?error=EmployeeNotAvailable');
         }
-        if($this->checkOtherBooking($start,$end,$date)){
+        if($this->checkOtherBooking($start,$end,$date,$emp)){
             return redirect('booking?error=Overlap');
         }
         
@@ -124,7 +123,7 @@ class BookingController extends Controller
         }
         return false;
     }
-    public static function checkOtherBooking($start,$end,$date)
+    public static function checkOtherBooking($start,$end,$date,$emp)
     {
         //check if overlap of bookings for employee
         $bookings = DB::table('events')->where('employee_id', $emp)->whereDate('estart',$date)->get();
@@ -140,5 +139,9 @@ class BookingController extends Controller
             }
         }  
         return false; 
+    }
+    public static function test()
+    {
+        return true;
     }
 }
