@@ -40,6 +40,13 @@ class BookingController extends Controller
         {
             $admin = Auth::user()->admin;
         	if(!$admin){ 
+                $data = array(
+            'bookings'  => $bookings,
+            'services'   => $services,
+            'employees' => $employees,
+            'customer_id' => Auth::user()->id,
+            'customer_name' => Auth::user()->name
+        );
         		return view('booking.booking')->with($data);
         	}
         	return view('booking.booking_admin')->with($data);
@@ -70,40 +77,18 @@ class BookingController extends Controller
         
 		//check if data is past current
         //check if time is past current
-        if($start<$today){
-            echo 'stop here';
+
+
+
+
+        if($this->checkPast($start)){
             return redirect('booking?error=InPast');
         }
-        //check if employee availible 
-        $dayofweek = date('w', strtotime($date));
-        $emp_start = DB::table('employeetimes')->where('empid', $emp)->where('day', $dayofweek)->value('start');
-        $emp_end = DB::table('employeetimes')->where('empid', $emp)->where('day', $dayofweek)->value('end');
-        $emp_start_date = $date.' '.$emp_start.':00';
-        $emp_end_date = $date.' '.$emp_end.':00';
-
-        echo $start.'<br>';
-            echo $end.'<br>';
-            echo $emp_start_date.'<br>';
-            echo $emp_end_date.'<br>';
-        if($start<$emp_start_date||$start>$emp_end_date||$end>$emp_end_date){
+        if($this->checkAvailable($start,$end,$date)){
             return redirect('booking?error=EmployeeNotAvailable');
         }
-        //check if overlap of bookings for employee
-    	$bookings = DB::table('events')->where('employee_id', $emp)->whereDate('estart',$date)->get();
-        //$bookings = Event::All();
-        foreach ($bookings as $booking) {
-            if($booking->estart <= $start&&$start < $booking->eend){
-                echo "start overlap wwith".$booking->id;
-                return redirect('booking?error=Overlap');
-            }
-            if($booking->estart < $end&&$end <= $booking->eend){
-                echo "end overlap wwith".$booking->id;
-                return redirect('booking?error=Overlap');
-            }
-            if($start <= $booking->estart&&$booking->estart < $end){
-                echo "start overlap wwith".$booking->id;
-                return redirect('booking?error=Overlap');
-            }
+        if($this->checkOtherBooking($start,$end,$date)){
+            return redirect('booking?error=Overlap');
         }
         
     	$event = new event;
@@ -115,4 +100,45 @@ class BookingController extends Controller
 	        $event->save();
 	        return redirect('booking');
    	}
+
+    public static function checkPast($start)
+    {
+        $today = date("Y-m-d H:i:s");
+        if($start<$today){
+            return true;
+        }
+        else return false;
+    }
+    public static function checkAvailable($start,$end,$date,$emp)
+    {
+        //check if employee availible 
+        $dayofweek = date('w', strtotime($date));
+        $emp_start = DB::table('employeetimes')->where('empid', $emp)->where('day', $dayofweek)->value('start');
+        $emp_end = DB::table('employeetimes')->where('empid', $emp)->where('day', $dayofweek)->value('end');
+        $emp_start_date = $date.' '.$emp_start.':00';
+        $emp_end_date = $date.' '.$emp_end.':00';
+
+        
+        if($start<$emp_start_date||$start>$emp_end_date||$end>$emp_end_date){
+            return true;
+        }
+        return false;
+    }
+    public static function checkOtherBooking($start,$end,$date)
+    {
+        //check if overlap of bookings for employee
+        $bookings = DB::table('events')->where('employee_id', $emp)->whereDate('estart',$date)->get();
+        foreach ($bookings as $booking) {
+            if($booking->estart <= $start&&$start < $booking->eend){
+                return true;
+            }
+            if($booking->estart < $end&&$end <= $booking->eend){
+                return true;
+            }
+            if($start <= $booking->estart&&$booking->estart < $end){
+                return true;
+            }
+        }  
+        return false; 
+    }
 }

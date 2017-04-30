@@ -254,7 +254,7 @@
 			selectable: true,
 			selectHelper: true,
 			select: function(start, end) {
-				
+                $('#ModalAdd #time').val(moment(start).format('hh:mm'));
 				$('#ModalAdd #date').val(moment(start).format('YYYY-MM-DD'));
 				$('#ModalAdd #end').val(moment(end).format('YYYY-MM-DD'));
 				$('#ModalAdd').modal('show');
