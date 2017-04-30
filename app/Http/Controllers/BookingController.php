@@ -40,6 +40,13 @@ class BookingController extends Controller
         {
             $admin = Auth::user()->admin;
         	if(!$admin){ 
+                $data = array(
+            'bookings'  => $bookings,
+            'services'   => $services,
+            'employees' => $employees,
+            'customer_id' => Auth::user()->id,
+            'customer_name' => Auth::user()->name
+        );
         		return view('booking.booking')->with($data);
         	}
         	return view('booking.booking_admin')->with($data);

@@ -117,12 +117,9 @@
 				  <div class="form-group">
 					<label for="title" class="col-sm-2 control-label">Customer</label>
 					<div class="col-sm-10">
-					  <select name="customer_id" class="form-control" id="customer_id" required>
-						  <option value="">Choose</option>
-						 <?php foreach($customers as $customer):
-
-						 	echo '<option value="'.$customer->id.'">'.$customer->name.'</option>';
-						 endforeach; ?>
+					  <select name="customer_id" class="form-control" id="customer_id" required disabled="true">
+						  
+						 <option value="{{$customer_id}}">{{$customer_name}}</option>
 						  
 						</select>
 					</div>
