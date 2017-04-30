@@ -102,5 +102,14 @@ class AdminController extends Controller
     		return redirect('home');
     	}
     	return view('admin.confirm_service');
-    }	
+    }
+
+    public function confirmEmployeeTimes()
+    {	
+    	$admin = Auth::user()->admin;
+    	if(!$admin){
+    		return redirect('home');
+    	}
+    	return view('admin.confirm_employee_times');
+    }
 }
