@@ -148,9 +148,20 @@
 					</div>
 				  </div>
 				  <div class="form-group">
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
+                      
 					<label for="time" class="col-sm-2 control-label">Time</label>
 					<div class="col-sm-10">
-					  <input type="time" step="900" value="09:00" name="time" id="time"> <!-- 5 min step -->
+					  <input type="time" step="900" value="9:00" name="time" id="time"> <!-- 5 min step -->
 					</div>
 				  </div>
 				
@@ -262,7 +273,7 @@
 			selectable: true,
 			selectHelper: true,
 			select: function(start, end) {
-				
+				$('#ModalAdd #time').val(moment(start).format('hh:mm'));
 				$('#ModalAdd #date').val(moment(start).format('YYYY-MM-DD'));
 				$('#ModalAdd #end').val(moment(end).format('YYYY-MM-DD'));
 				$('#ModalAdd').modal('show');
