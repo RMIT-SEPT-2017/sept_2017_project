@@ -27,6 +27,7 @@ Route::get('/admin', 'AdminController@index');
 Route::get('/create_employee', 'AdminController@createEmployee');
 Route::get('/view_employees', 'AdminController@viewEmployee');
 Route::get('/add_employee_times', 'AdminController@employeeTimes');
+Route::get('/confirm_employee_times', 'AdminController@confirmEmployeeTimes');
 Route::get('/view_bookings', 'AdminController@bookings');
 Route::get('/create_service', 'AdminController@createService');
 Route::get('/confirm_service', 'AdminController@confirmService');

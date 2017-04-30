@@ -67,7 +67,7 @@
 
 
 
-            <form id="day_form" name="day_form" action="{{ action('EmployeeTimesController@updateEmployeeTimes') }}" method="POST" class="ajax">
+            <form id="day_form" name="day_form" action="{{ action('EmployeeTimesController@updateEmployeeTimes') }}" method="POST" class="addEmployeeTimes">
                 <label >Select Employee</label><br>
                         <select name="id">
                         <?php $i = 0?>
@@ -127,7 +127,10 @@ $('form.ajax').on('submit',function(){
         data : postData,
         success:function(response) 
         {
+	    $sql_delete = "DELETE FROM employeetimes WHERE empid = ".$_POST['id'];
+            query($sql_delete) 
             console.log(response);
+	    window.location.href = "/confirm_employee_times";
         },
         error: function(response) 
         {

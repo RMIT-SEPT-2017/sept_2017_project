@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Employee;
 use App\EmployeeTime;
@@ -20,6 +21,7 @@ class EmployeeTimesController extends Controller
         $startArray = array('start1','start2','start3','start4','start5');
         $endArray = array('end1','end2','end3','end4','end5');
         if($this->checkEmployeeId($id)){
+            DB::table('employeetimes')->where('empid', '=', $id)->delete();
             for($i=0;$i<5;$i++){
                 $day = Input::get($dayArray[$i]);
                 $start = Input::get($startArray[$i]);
@@ -34,8 +36,8 @@ class EmployeeTimesController extends Controller
                     $employeeTime->save();
                 }
             }
+            return redirect('/confirm_employee_times');
         }
-        echo "okay";
     }
 
 
@@ -64,6 +66,7 @@ class EmployeeTimesController extends Controller
         }
         return false;
     }
+
 //    public static function checkDate($date)
 //    {
 //        if(strtotime($date) < strtotime('now')) return false;
