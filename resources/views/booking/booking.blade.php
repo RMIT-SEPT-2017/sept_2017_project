@@ -117,11 +117,8 @@
 				  <div class="form-group">
 					<label for="title" class="col-sm-2 control-label">Customer</label>
 					<div class="col-sm-10">
-					  <select name="customer_id" class="form-control" id="customer_id" required disabled="true">
-						  
-						 <option value="{{$customer_id}}">{{$customer_name}}</option>
-						  
-						</select>
+					<input type="hidden" name="customer_id" class="form-control" id="customer_id" readonly value="{{$customer_id}}">
+					 <input type="text" class="form-control" readonly value="{{$customer_name}}"></input>
 					</div>
 				  </div>
 

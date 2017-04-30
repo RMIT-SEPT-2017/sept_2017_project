@@ -1,14 +1,14 @@
     <div id="locationField" >
-      <input class="form-control" id="autocomplete" placeholder=""
+      <input class="form-control" id="autocomplete" autocomplete="false" placeholder=""
              onFocus="geolocate()" type="text"></input>
     </div>
 
-    <input class="field" id="street_number" name="street_number" disabled="true" type="hidden"></input>
-    <input class="field" id="route" name="route" disabled="true"  type="hidden"></input>
-    <input class="field" id="locality" name="locality" disabled="true"  type="hidden"></input>
-    <input class="field" id="administrative_area_level_1" name="administrative_area_level_1" disabled="true"  type="hidden"></input>
-    <input class="field" id="postal_code" name="postal_code" disabled="true"  type="hidden"></input>
-    <input class="field" id="country" name="country" disabled="true"  type="hidden"></input>
+    <input class="field" id="street_number" name="street_number" disabled="true" type="hidden" required></input>
+    <input class="field" id="route" name="route" disabled="true"  type="hidden" required></input>
+    <input class="field" id="locality" name="locality" disabled="true"  type="hidden" required></input>
+    <input class="field" id="administrative_area_level_1" name="administrative_area_level_1" disabled="true"  type="hidden" required></input>
+    <input class="field" id="postal_code" name="postal_code" disabled="true"  type="hidden" required></input>
+    <input class="field" id="country" name="country" disabled="true"  type="hidden" required></input>
 
     <script>
       // This example displays an address form, using the autocomplete feature

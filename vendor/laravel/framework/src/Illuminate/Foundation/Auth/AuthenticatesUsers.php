@@ -113,10 +113,7 @@ trait AuthenticatesUsers
      */
     protected function authenticated(Request $request, $user)
     {
-        if($user->admin==1) {
-            return redirect('/admin');
-        }
-        return redirect('/home');
+        //
     }
 
     /**

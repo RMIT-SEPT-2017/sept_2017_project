@@ -64,7 +64,7 @@
                             </div>
                         </div>
                         
-			<br><label class="input">Address:</label>
+			<br><label class="input">Address: (Type your address and select from list)</label>
 			<div class="col-md-6">
 			    @include('layouts.googleApi')
 			    <br>

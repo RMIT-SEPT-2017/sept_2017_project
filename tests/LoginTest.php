@@ -11,7 +11,7 @@ class LoginTests extends TestCase
             ->type('test@gmail.com', 'email')
             ->type('password', 'password')
             ->press('Login')
-            ->seePageIs('/home');
+            ->seePageIs('/booking');
     }
     public function testAdminLoginCorrect()
     {
@@ -19,7 +19,7 @@ class LoginTests extends TestCase
             ->type('bo@mail.com', 'email')
             ->type('password', 'password')
             ->press('Login')
-            ->seePageIs('/admin');
+            ->seePageIs('/booking');
     }
 
     public function testAdminLoginIncorrect()
