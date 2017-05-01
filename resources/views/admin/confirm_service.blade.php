@@ -16,9 +16,10 @@
         </div>
             <form class="" onsubmit="return validateForm();">
 	        <label>Service successfully added</label>
-		<div class="sub">
-		    <input type="button" value="Add another service" onClick="document.location.href='/create_service'"></a>
-		</div>
+		
+        <div class="sub">
+                        <a href="{{ url('/create_service') }}"><input type="change" value="Add another service">
+                    </div>
             </form>
     </div>
 </div>
