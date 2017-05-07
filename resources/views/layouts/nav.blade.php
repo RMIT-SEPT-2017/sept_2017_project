@@ -1,7 +1,6 @@
 
 
 		<div class="header">
-			<a href="index.php">
 			<img src="img/logo.png" alt="Logo" class="logo-img" height="80" width="176">
             </a>
 			<ul class="nav">
