@@ -13,7 +13,7 @@ class AdminController extends Controller
 {
     public function index()
     {
-    	
+
 		$admin = Auth::user()->admin;
     	if(!$admin){
     		return redirect('home');
@@ -28,8 +28,8 @@ class AdminController extends Controller
 
     public function createEmployee()
     {
-    	
-		
+
+
     	$admin = Auth::user()->admin;
     	if(!$admin){
     		return redirect('home');
@@ -38,7 +38,7 @@ class AdminController extends Controller
     }
     public function employeeTimes()
     {
-    	
+
 		$employeesNames = Employee::pluck('employee_name');
         $employeesIds = Employee::pluck('id');
         $data = array(
@@ -50,9 +50,9 @@ class AdminController extends Controller
     		return redirect('home');
     	}
     	return view('admin.employee_times')->with($data);
-    	
+
     }
-    
+
     public function viewEmployee()
     {
     	$admin = Auth::user()->admin;
@@ -74,7 +74,7 @@ class AdminController extends Controller
     	}
     	return view('admin.create_service');
     }
-    
+
     public function viewServices()
     {
         $admin = Auth::user()->admin;
@@ -86,17 +86,17 @@ class AdminController extends Controller
             ->get( );
         return view('admin.create_service')->with('services', $services);
     }
-    
+
     public function bookings()
-    {	
+    {
     	$admin = Auth::user()->admin;
     	if(!$admin){
     		return redirect('home');
     	}
-    }	
-    
+    }
+
     public function confirmService()
-    {	
+    {
     	$admin = Auth::user()->admin;
     	if(!$admin){
     		return redirect('home');
@@ -105,11 +105,46 @@ class AdminController extends Controller
     }
 
     public function confirmEmployeeTimes()
-    {	
+    {
     	$admin = Auth::user()->admin;
     	if(!$admin){
     		return redirect('home');
     	}
     	return view('admin.confirm_employee_times');
+    }
+
+    public function viewBusinesses()
+    {
+      $admin = Auth::user()->admin;
+    	if(!$admin){
+    		return redirect('home');
+    	}
+    	return view('admin.create_business');
+    }
+
+    public function confirmBusiness()
+    {
+      $admin = Auth::user()->admin;
+      if(!$admin){
+        return redirect('home');
+      }
+      return view('admin.confirm_business');
+    }
+    public function viewBusinessTimes()
+    {
+      $admin = Auth::user()->admin;
+    	if(!$admin){
+    		return redirect('home');
+    	}
+    	return view('admin.create_business_times');
+    }
+
+    public function confirmBusinessTimes()
+    {
+      $admin = Auth::user()->admin;
+      if(!$admin){
+        return redirect('home');
+      }
+      return view('admin.confirm_business');
     }
 }

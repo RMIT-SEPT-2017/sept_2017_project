@@ -20,6 +20,7 @@ Route::post('update_employee', ['as' => 'update_employee', 'uses' => 'EmployeeCo
 Route::post('update_service', ['as' => 'update_service', 'uses' => 'ServiceController@updateServices']);
 Route::post('add_booking', ['as' => 'add_booking', 'uses' => 'BookingController@addBooking']);
 Route::post('update_employee_times', ['as' => 'update_employee_times', 'uses' => 'EmployeeTimesController@updateEmployeeTimes']);
+Route::post('update_business', ['as' => 'update_business', 'uses' => 'BusinessController@updateBusinesses']);
 
 
 Route::get('/logout', 'AdminController@logoutUser');
@@ -32,6 +33,10 @@ Route::get('/view_bookings', 'AdminController@bookings');
 Route::get('/create_service', 'AdminController@createService');
 Route::get('/confirm_service', 'AdminController@confirmService');
 Route::get('/create_service', 'AdminController@viewServices');
+Route::get('/create_business', 'AdminController@viewBusinesses');
+Route::get('/confirm_business', 'AdminController@confirmBusiness');
+Route::get('/create_business_times', 'AdminController@viewBusinessTimes');
+Route::get('/confirm_business_times', 'AdminController@confirmBusinessTimes');
 
 
 
