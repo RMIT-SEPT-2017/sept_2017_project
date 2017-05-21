@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
 // use App\Employee;
 // use App\EmployeeTime;
+use App\Business;
 use DB;
 
 class BusinessController extends Controller
@@ -13,12 +14,18 @@ class BusinessController extends Controller
     public function updateBusinesses()
     {
     	$name = Input::get('name');
-      $color = Input::get('color');
-    	// if($this->checkName($name)&&$this->checkEmail($email)){
-	    	  $business = new business;
-	        $business -> business_name = $name;
-          $business -> color = $color;
-	        $business -> save();
+        DB::table('business')
+            ->where('id', 1)
+            ->update(array(
+                'street_number' => Input::get('street_number'),
+                'route' => Input::get('route'),
+                'locality' => Input::get('locality'),
+                'administrative_area_level_1' => Input::get('administrative_area_level_1'),
+                'postal_code' => Input::get('postal_code'),
+                'country' => Input::get('country'),
+                'colorBanner' => Input::get('colorPrimary'),
+                'colorBorder' => Input::get('colorSeconary'),
+                'name' => Input::get('name')));
 	    // }
         return redirect('/confirm_business');
     }

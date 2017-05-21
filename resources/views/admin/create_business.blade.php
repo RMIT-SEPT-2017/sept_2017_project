@@ -40,7 +40,8 @@
             <h2>Update Business</h2>
         </div>
             <form class="addBusiness" method="POST" action="{{ action('BusinessController@updateBusinesses') }}" onsubmit="return validateForm();">
-          	    <label class="input">Business Name:</label>
+          	    <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
+                <label class="input">Business Name:</label>
                     <input placeholder="" name="name" type="text" id="name">
                 <br><label class="input">Business Address: </label>
 			<div class="col-md-6">

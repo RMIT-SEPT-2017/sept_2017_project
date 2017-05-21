@@ -4,10 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Employee extends Model
+class Business extends Model
 {
-    public function business()
-    {
-        return $this->hasMany('Business');
-    }
+    protected $table = 'business';
 }
