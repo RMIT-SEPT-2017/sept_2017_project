@@ -4,9 +4,9 @@
         <head>
 @include('layouts.head')
     <style>
-        
+
         <style>
-        
+
         body {
           font-family: "Helvetica Neue", Helvetica, Arial;
           font-size: 14px;
@@ -54,7 +54,7 @@
             display: block;
           }
         }
-        
+
         .cell {
           padding: 6px 12px;
           display: table-cell;
@@ -65,7 +65,7 @@
             display: block;
           }
         }
-        
+
         #row1{
                 display:flex;
                 flex-direction:row;
@@ -92,7 +92,7 @@
     width: 100%;
     background: white;
         }
-      
+
 
     </style>
 </head>
@@ -113,23 +113,23 @@
 
             <div class="form-content">
                 <div class="sub-form2">
-                    <div class="sub-1">  
+                    <div class="sub-1">
                         @foreach($title as $title)
                         <h2>{{$title->name}}</h2>
                         @endforeach
                            @foreach($locale as $locale)
                         <input class="input" id="address" value="{{$locale->location}}" readonly>
                             @endforeach
-                        <div id="map"></div>      
-                        <body onload="codeAddress()">   
+                        <div id="map"></div>
+                        <body onload="codeAddress()">
                         <div>
-                         
+
                         </div>
                         </body>
                     </div>
                 </div>
             </div>
-          </div>   
+          </div>
         <div id="column2">
                 <div class="form-content">
                 <div class="sub-form">
@@ -144,17 +144,31 @@
                                 </div>
                                 @foreach($business as $business)
                                     <div class="row">
-                                        <div class="cell">{{$business->day}}</div>
+                                        @if ($business->day == 0)
+                                            <div class="cell">Sunday</div>
+                                        @elseif ($business->day == 1)
+                                            <div class="cell">Monday</div>
+                                        @elseif ($business->day == 2)
+                                            <div class="cell">Tuesday</div>
+                                        @elseif ($business->day == 3)
+                                            <div class="cell">Wednesday</div>
+                                        @elseif ($business->day == 4)
+                                            <div class="cell">Thursday</div>
+                                        @elseif ($business->day == 5)
+                                            <div class="cell">Friday</div>
+                                        @elseif ($business->day == 6)
+                                            <div class="cell">Saturday</div>
+                                        @endif
                                         <div class="cell">{{$business->start}}</div>
                                         <div class="cell">{{$business->end}}</div>
                                     </div>
                                 @endforeach
 
                                     </div>
-                            </div>    
+                            </div>
                         </div>
                 </div>
-            </div>        
+            </div>
         </div>
     </div>
 <script>
@@ -191,4 +205,3 @@
     </script>
         </body>
     </html>
-
