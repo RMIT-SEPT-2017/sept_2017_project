@@ -40,8 +40,8 @@ Route::get('/confirm_business_times', 'AdminController@confirmBusinessTimes');
 
 Route::get('/business', 'BusinessController@index');
 
-
-
+Route::get('/site_control', 'SuperUserController@index');
+Route::post('/update_control', ['as' => 'update_control', 'uses' => 'SuperUserController@updateControl']);
 
 
 //Route::get('/booking/{date}','BookingController@update');
