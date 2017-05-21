@@ -114,9 +114,7 @@
             <div class="form-content">
                 <div class="sub-form2">
                     <div class="sub-1">  
-                           @foreach($locale as $locale)
-                        <input class="input" id="address" value="{{$locale->location}}" readonly>
-                            @endforeach
+                        <input class="input" id="address" value="{{$title->street_number}} {{$title->route}}, {{$title->locality}} {{$title->administrative_area_level_1}} {{$title->country}} {{$title->postal_code}}" readonly>
                         <div id="map"></div>      
                         <body onload="codeAddress()">   
                         <div>
@@ -159,7 +157,7 @@
   var map;
   function initMap() {
     geocoder = new google.maps.Geocoder();
-    var latlng = new google.maps.LatLng(-34.397, 150.644);
+    var latlng = new google.maps.LatLng(-37.9716929,144.7729595);
     var mapOptions = {
       zoom: 8,
       center: latlng
