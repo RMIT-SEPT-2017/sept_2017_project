@@ -8,7 +8,7 @@
 
 .header h1 {
   position: relative;
-  top: 10px;
+  top: 35px;
   left: 25px;
 }
 .nav-link img {
@@ -16,7 +16,7 @@
     position: relative;
     width: 40px;
     height: 40px;
-    top: -50px;
+    top: -10px;
     left: -17px;
 }
     .header {
@@ -46,6 +46,7 @@
 			  <div class="overlay-content">
 <!--				<a href="{!! url('/home'); !!}">Home</a>-->
 				<a href="{!! url('/booking'); !!}">Make Booking</a>
+                  <a href="{!! url('/business'); !!}">Business Details</a>
 <!--				<a href="#">View Bookings</a>-->
 				<a href="{!! url('/logout'); !!}">Log out</a>
 

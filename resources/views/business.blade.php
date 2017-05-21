@@ -4,6 +4,9 @@
         <head>
 @include('layouts.head')
     <style>
+        
+        <style>
+        
         body {
           font-family: "Helvetica Neue", Helvetica, Arial;
           font-size: 14px;
@@ -84,12 +87,27 @@
             width: 600px;
         height: 600px;
       }
+        input {
+            font-size: medium;
+    width: 100%;
+    background: white;
+        }
       
 
     </style>
 </head>
         <body>
 @include('layouts.nav')
+            <style>
+            .nav-link img {
+            float: left;
+            position: relative;
+            width: 40px;
+            height: 40px;
+            top: -10px;
+            left: -17px;
+        }
+                </style>
             <div id="row1">
     <div id="column1">
 

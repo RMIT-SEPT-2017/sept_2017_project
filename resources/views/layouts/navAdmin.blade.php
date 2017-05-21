@@ -9,7 +9,7 @@
 
 .header h1 {
   position: relative;
-  top: 10px;
+  top: 35px;
   left: 25px;
 }
 .nav-link img {
@@ -17,7 +17,7 @@
     position: relative;
     width: 40px;
     height: 40px;
-    top: -50px;
+    top: -10px;
     left: -17px;
 }
     .header {

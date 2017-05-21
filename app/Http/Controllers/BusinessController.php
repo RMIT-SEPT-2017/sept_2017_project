@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 // use App\Employee;
 // use App\EmployeeTime;
 use DB;
-protected $title;
 
 class BusinessController extends Controller
 {
