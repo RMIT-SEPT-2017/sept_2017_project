@@ -7,22 +7,21 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Employee;
 use App\EmployeeTime;
+use Session;
 
 class EmployeeTimesController extends Controller
 {
-    
+
     public function updateEmployeeTimes()
     {
-
-
         $id = Input::get('id');
 
-        $dayArray = array('day1','day2','day3','day4','day5');
-        $startArray = array('start1','start2','start3','start4','start5');
-        $endArray = array('end1','end2','end3','end4','end5');
+        $dayArray = array('day0','day1','day2','day3','day4','day5', 'day6');
+        $startArray = array('start0','start1','start2','start3','start4','start5', 'start6');
+        $endArray = array('end0','end1','end2','end3','end4','end5', 'end6');
         if($this->checkEmployeeId($id)){
             DB::table('employeetimes')->where('empid', '=', $id)->delete();
-            for($i=0;$i<5;$i++){
+            for($i=0;$i<7;$i++){
                 $day = Input::get($dayArray[$i]);
                 $start = Input::get($startArray[$i]);
                 $end = Input::get($endArray[$i]);
@@ -30,13 +29,15 @@ class EmployeeTimesController extends Controller
                     //&&$this->checkDate($date)^^
                     $employeeTime = new employeeTime;
                     $employeeTime->empid = $id;
-                    $employeeTime->day = $i+1;
+                    $employeeTime->day = $i;
                     $employeeTime->start = $start;
                     $employeeTime->end = $end;
                     $employeeTime->save();
+                    Session::flash('confirmationColor', "white");
+                    Session::flash('confirmation', "Time successfully added.");
                 }
             }
-            return redirect('/confirm_employee_times');
+            return redirect('/add_employee_times');
         }
     }
 
@@ -47,6 +48,8 @@ class EmployeeTimesController extends Controller
     public static function checkTimesMatch($start,$end)
     {
         if(strtotime($end)<strtotime($start)){
+            Session::flash('errorTimeColor', "white");
+            Session::flash('errorTime', "A start time was after end time, that time was not added.");
             return false;
         }
         else return true;
