@@ -16,7 +16,7 @@
     position: relative;
     width: 40px;
     height: 40px;
-    top: -10px;
+    top: -50px;
     left: -17px;
 }
     .header {
