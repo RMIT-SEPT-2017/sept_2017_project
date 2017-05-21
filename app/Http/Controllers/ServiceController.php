@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Input;
 use Illuminate\Http\Request;
 use App\Service;
 use DB;
+use Session;
+
 class ServiceController extends Controller
 {
     public function updateServices()
@@ -14,7 +16,7 @@ class ServiceController extends Controller
     	$duration = Input::get('duration');
     	$color = Input::get('color');
 
-        
+
 
     	if($this->checkDuration($duration)&&$this->checkTitle($title)){
 	    	$service = new service;
@@ -22,13 +24,15 @@ class ServiceController extends Controller
 	        $service->duration = $duration;
             $service->color = $color;
 	        $service->save();
-	    } 
-        return redirect('/confirm_service');
+          Session::flash('confirmationColor', "green");
+          Session::flash('confirmation', "Service successfully added!");
+	    }
+        return redirect('/create_service');
     }
 
     public static function checkDuration($duration)
     {
-        
+
         if (!is_numeric($duration))return false;
         return true;
     }
@@ -36,6 +40,8 @@ class ServiceController extends Controller
     {
         $services = DB::table('services')->where('title', $title)->get();
         foreach ($services as $service) {
+            Session::flash('confirmationColor', "red");
+            Session::flash('confirmation', "Service already exists.");
             return false;
         }
         return true;

@@ -3,22 +3,22 @@
 <head>
 @include('layouts.head')
 <script type="text/javascript">
-    function validateForm() { 
+    function validateForm() {
         var title = document.getElementById("title").value;
 	var lengthTitle = title.length;
 
         document.getElementById('validationWarn').innerHTML = "";
         if(!(title)) {
             document.getElementById('validationWarn').innerHTML = "Please enter a service title";
-            return false;   
+            return false;
         }
         if(lengthTitle > 254) {
             document.getElementById('validationWarn').innerHTML = "Service title is too long";
-            return false;   
+            return false;
         }
-        
+
         var color = document.getElementById("hex-str").value;
-         
+
 }
 
 </script>
@@ -71,7 +71,7 @@
             display: block;
           }
         }
-        
+
         .cell {
           padding: 6px 12px;
           display: table-cell;
@@ -106,32 +106,36 @@
                 <div class="cell"> </div>
                 <div class="cell">Service</div>
                 <div class="cell">Duration</div>
-                
+
             </div>
     @foreach ($services as $services)
                         <div class="row">
                             <div class="cell">
-                    <button 
+                    <button
                             class="jscolor {valueElement:null,value:'{{$services->color}}'}" disabled
                             style="border-radius: 50px; border: none; width: 20px; height: 20px; margin-left: 20px;">
                     </button>
                 </div>
                 <div class="cell">{{$services->title}}</div>
                 <div class="cell">{{$services->duration}}</div>
-                
+
 
             </div>
 	@endforeach
-        </div>    
+        </div>
+        <h2 align="center" style="color:{{ Session::get('confirmationColor') }};">{{ Session::get('confirmation') }}</h2>
   </div>
         </div>
-            
+
     </div>
 </div>
     <div class="form-content">
     <div class="sub-form">
         <div class="sub-1">
-            <h2>Add Service</h2>
+            <h2>Add Service  </h2>
+            <!-- @if(Session::has('confirmation')) -->
+            <p></p>
+            <!-- @endif -->
         </div>
             <form class="addService" method="POST" action="{{ action('ServiceController@updateServices') }}" onsubmit="return validateForm();">
 		<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
@@ -164,5 +168,3 @@
 
 
 @include('layouts.foot')
-
-
