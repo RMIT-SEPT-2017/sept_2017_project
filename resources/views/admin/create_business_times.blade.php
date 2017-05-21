@@ -188,7 +188,7 @@
 								</select>
 							</br></br>
 
-            <label id="thursday">Thursday</label><br>
+            <label id="thursday">Thursday</label>
                 <input type="hidden" id="thu" name="day4" value="4" />
 								<select name="start4" type="text" id="duration" style="width: 30%">
 									<option value="--:--">--:--</option>
@@ -241,7 +241,7 @@
 								</select>
 							</br></br>
 
-            <label id="friday">Friday</label><br>
+            <label id="friday">Friday</label>
                 <input type="hidden" id="fri" name="day5" value="5" />
 								<select name="start5" type="text" id="duration" style="width: 30%">
 									<option value="--:--">--:--</option>
@@ -294,7 +294,7 @@
 								</select>
 							</br></br>
 
-						<label id="saturday">Saturday</label><br>
+						<label id="saturday">Saturday</label>
 								<input type="hidden" id="sat" name="day6" value="6" />
 								<select name="start6" type="text" id="duration" style="width: 30%">
 									<option value="--:--">--:--</option>
@@ -347,7 +347,7 @@
 								</select>
 							</br></br>
 
-						<label id="sunday">Sunday</label><br>
+						<label id="sunday">Sunday</label>
 								<input type="hidden" id="sun" name="day7" value="7" />
 								<select name="start7" type="text" id="duration" style="width: 30%">
 									<option value="--:--">--:--</option>
