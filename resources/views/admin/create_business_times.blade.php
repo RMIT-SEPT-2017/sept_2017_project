@@ -84,7 +84,6 @@
 						<label id="tuesday">Tuesday</label>
                 <input type="hidden" id="tue" name="day2" value="2" />
 								<select name="start2" type="text" id="duration" style="width: 30%">
-									style="width: 400px"
 									<option value="--:--">--:--</option>
 									<option value="09:00">09:00</option>
 									<option value="09:30">09:30</option>
