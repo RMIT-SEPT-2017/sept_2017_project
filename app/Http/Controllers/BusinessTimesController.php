@@ -17,14 +17,14 @@ class BusinessTimesController extends Controller
         $dayArray = array('day0','day1','day2','day3','day4','day5', 'day6');
         $startArray = array('start0','start1','start2','start3','start4','start5', 'start6');
         $endArray = array('end0','end1','end2','end3','end4','end5', 'end6');
-        DB::table('businesstimes')->where('bid', '=', 1)->delete();
+        DB::table('businesstimes')->where('busid', '=', 1)->delete();
         for($i=0;$i<7;$i++){
             $day = Input::get($dayArray[$i]);
             $start = Input::get($startArray[$i]);
             $end = Input::get($endArray[$i]);
             if($this->checkTimesMatch($start,$end)&&$this->checkTimes($start,$end)){
                 $businessTime = new BusinessTime;
-                $businessTime->bid = 1;
+                $businessTime->busid = 1;
                 $businessTime->day = $i;
                 $businessTime->start = $start;
                 $businessTime->end = $end;
