@@ -14,7 +14,6 @@ class BusinessController extends Controller
     public function updateBusinesses()
     {
     	$name = Input::get('name');
-<<<<<<< HEAD
         DB::table('business')
             ->where('id', 1)
             ->update(array(
@@ -27,16 +26,7 @@ class BusinessController extends Controller
                 'colorBanner' => Input::get('colorPrimary'),
                 'colorBorder' => Input::get('colorSeconary'),
                 'name' => Input::get('name')));
-=======
-        $color = Input::get('color');
-    	
-        // if($this->checkName($name)&&$this->checkEmail($email)){
-	   $business = new business;
-	   $business -> business_name = $name;
-       $business -> color = $color;
-	   $business -> save();
->>>>>>> 01b4450fc2208795470f3b0a9cc7f52c0528b4e8
-	    // }
+
         return redirect('/confirm_business');
     }
 
