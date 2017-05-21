@@ -64,6 +64,10 @@
 <div class="form-content">
     <div class="sub-form">
         <div class="sub-1">
+					<?php
+							$name = DB::table('business')->where('id', '1')->value('name');
+							print "<a>Welcome to $name</a>";
+					?>
         <a>Welcome</a>
         <h2>Add new availability</h2>
         </div>
@@ -71,6 +75,7 @@
             <form id="day_form" name="day_form" action="{{ action('EmployeeTimesController@updateEmployeeTimes') }}" method="POST" class="addEmployeeTimes">
 								<h3 align="center" style="color:{{ Session::get('confirmationColor') }};">{{ Session::get('confirmation') }}</h3>
 								<h3 align="center" style="color:{{ Session::get('errorTimeColor') }};">{{ Session::get('errorTime') }}</h3>
+								
                 <label>Select Employee</label><br>
                         <select name="id">
                         <?php $i = 0?>
