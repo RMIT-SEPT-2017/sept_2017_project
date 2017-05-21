@@ -38,6 +38,10 @@ Route::get('/confirm_business', 'AdminController@confirmBusiness');
 Route::get('/create_business_times', 'AdminController@viewBusinessTimes');
 Route::get('/confirm_business_times', 'AdminController@confirmBusinessTimes');
 
+Route::get('/business', 'BusinessController@index');
+
+
+
 
 
 //Route::get('/booking/{date}','BookingController@update');
