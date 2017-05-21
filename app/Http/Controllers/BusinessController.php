@@ -14,6 +14,9 @@ class BusinessController extends Controller
     public function updateBusinesses()
     {
     	$name = Input::get('name');
+        if(Input::get('country')==""){
+            return redirect('/create_business');
+        }
         DB::table('business')
             ->where('id', 1)
             ->update(array(
