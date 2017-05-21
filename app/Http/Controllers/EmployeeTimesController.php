@@ -25,7 +25,7 @@ class EmployeeTimesController extends Controller
                 $day = Input::get($dayArray[$i]);
                 $start = Input::get($startArray[$i]);
                 $end = Input::get($endArray[$i]);
-                if($this->checkTimesMatch($start,$end)&&$this->checkTimes($start,$end)){
+                if($this->checkTimesMatch($start,$end)&&$this->checkTimes($start,$end,$i)){
                     //&&$this->checkDate($date)^^
                     $employeeTime = new employeeTime;
                     $employeeTime->empid = $id;
@@ -54,10 +54,17 @@ class EmployeeTimesController extends Controller
         }
         else return true;
     }
-    public static function checkTimes($start,$end)
+    public static function checkTimes($start,$end,$i)
     {
         if ( !preg_match('/^([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/', $start))return false;
         if ( !preg_match('/^([0-9]|0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/', $end))return false;
+
+        $day = DB::table('businesstimes')
+                ->where('day', '=', $i)
+                ->first();
+
+        if(strtotime($start)<strtotime($day->start))return false;
+        if(strtotime($day->end)<strtotime($end))return false;
         return true;
     }
 
