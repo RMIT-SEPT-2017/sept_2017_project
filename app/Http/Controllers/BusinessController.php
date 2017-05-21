@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 // use App\EmployeeTime;
 use App\Business;
 use DB;
+use Session;
 
 class BusinessController extends Controller
 {
@@ -29,26 +30,27 @@ class BusinessController extends Controller
                 'colorBanner' => Input::get('colorPrimary'),
                 'colorBorder' => Input::get('colorSeconary'),
                 'name' => Input::get('name')));
-
-        return redirect('/confirm_business');
+        Session::flash('confirmationColor', "white");
+        Session::flash('confirmation', "Business successfully updated");
+        return redirect('/create_business');
     }
 
     public function index()
     {
         $title = DB::select('select * from business where id = ?', [1])[0];
-        
+
         $business = DB::table('business')
             ->join('businesstimes', 'business.id', '=', 'businesstimes.busid')
             ->select('day', 'start', 'end')
             ->where('id', '=', 1)
             ->get();
-        
-        
+
+
         return view('business')
             ->with('business', $business)
             ->with('title', $title);
     }
-     
+
 
 
 

@@ -39,6 +39,7 @@
             <a>Welcome</a>
             <h2>Update Business</h2>
         </div>
+            <h3 align="center" style="color:{{ Session::get('confirmationColor') }};">{{ Session::get('confirmation') }}</h3>
             <form class="addBusiness" method="POST" action="{{ action('BusinessController@updateBusinesses') }}" onsubmit="return validateForm();">
           	    <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
                 <label class="input">Business Name:</label>
