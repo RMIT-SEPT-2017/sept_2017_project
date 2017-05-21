@@ -3,7 +3,7 @@
 <head>
 @include('layouts.head')
 <script type="text/javascript">
-    function validateForm() { 
+    function validateForm() {
         var email = document.getElementById("email").value;
         var name = document.getElementById("name").value;
 	var lengthEmail = email.length;
@@ -13,21 +13,21 @@
         var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         if(!re.test(email)) {
             document.getElementById('validationWarn').innerHTML = "Please enter a valid email address";
-            return false;   
+            return false;
         }
         re = /^([^0-9!@#$%^&*()_+=]*)$/;
         if(!re.test(name)) {
             document.getElementById('validationWarn').innerHTML = "Please enter a valid name";
-            return false;   
+            return false;
         }
         if(lengthEmail > 254) {
             document.getElementById('validationWarn').innerHTML = "Email is too long";
-            return false;   
-        }	
+            return false;
+        }
         if(lengthName > 254) {
             document.getElementById('validationWarn').innerHTML = "Name is too long";
-            return false;   
-        }	
+            return false;
+        }
 }
 
 </script>
@@ -42,6 +42,7 @@
             <h2>Add Employee</h2>
         </div>
             <form class="addEmployee" method="POST" action="{{ action('EmployeeController@updateEmployees') }}" onsubmit="return validateForm();">
+            <p align="center" style="color:{{ Session::get('confirmationColor') }};">{{ Session::get('confirmation') }}</p>
 	    <label class="input">Full Name:</label>
             <input placeholder="" name="name" type="text" id="name">
 	    <label class="input">Email:</label>
@@ -56,5 +57,3 @@
 </div>
 
 @include('layouts.foot')
-
-

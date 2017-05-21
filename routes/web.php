@@ -21,6 +21,7 @@ Route::post('update_service', ['as' => 'update_service', 'uses' => 'ServiceContr
 Route::post('add_booking', ['as' => 'add_booking', 'uses' => 'BookingController@addBooking']);
 Route::post('update_employee_times', ['as' => 'update_employee_times', 'uses' => 'EmployeeTimesController@updateEmployeeTimes']);
 Route::post('update_business', ['as' => 'update_business', 'uses' => 'BusinessController@updateBusinesses']);
+Route::post('update_busines_times', ['as' => 'update_business_times', 'uses' => 'BusinessTimesController@updateBusinessTimes']);
 
 
 Route::get('/logout', 'AdminController@logoutUser');

@@ -24,8 +24,8 @@ class ServiceController extends Controller
 	        $service->duration = $duration;
             $service->color = $color;
 	        $service->save();
-          Session::flash('confirmationColor', "green");
-          Session::flash('confirmation', "Service successfully added!");
+          Session::flash('confirmationColor', "white");
+          Session::flash('confirmation', "Service successfully added.");
 	    }
         return redirect('/create_service');
     }
@@ -40,7 +40,7 @@ class ServiceController extends Controller
     {
         $services = DB::table('services')->where('title', $title)->get();
         foreach ($services as $service) {
-            Session::flash('confirmationColor', "red");
+            Session::flash('confirmationColor', "white");
             Session::flash('confirmation', "Service already exists.");
             return false;
         }
