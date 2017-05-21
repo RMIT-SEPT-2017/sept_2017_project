@@ -57,6 +57,9 @@
 //window.onload = setDateFormat;
 
 </script>
+<style>
+		a{ color: white; }
+</style>
 
 <div class="form-content">
     <div class="sub-form">
