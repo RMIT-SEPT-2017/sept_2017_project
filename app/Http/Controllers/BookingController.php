@@ -39,6 +39,9 @@ class BookingController extends Controller
         if($user = Auth::user())
         {
             $admin = Auth::user()->admin;
+            if($admin==2){ 
+                return redirect('site_control');
+            }
         	if(!$admin){ 
                 $data = array(
             'bookings'  => $bookings,
