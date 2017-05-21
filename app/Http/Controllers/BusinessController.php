@@ -14,6 +14,7 @@ class BusinessController extends Controller
     public function updateBusinesses()
     {
     	$name = Input::get('name');
+<<<<<<< HEAD
         DB::table('business')
             ->where('id', 1)
             ->update(array(
@@ -26,14 +27,23 @@ class BusinessController extends Controller
                 'colorBanner' => Input::get('colorPrimary'),
                 'colorBorder' => Input::get('colorSeconary'),
                 'name' => Input::get('name')));
+=======
+        $color = Input::get('color');
+    	
+        // if($this->checkName($name)&&$this->checkEmail($email)){
+	   $business = new business;
+	   $business -> business_name = $name;
+       $business -> color = $color;
+	   $business -> save();
+>>>>>>> 01b4450fc2208795470f3b0a9cc7f52c0528b4e8
 	    // }
         return redirect('/confirm_business');
     }
 
     public function index()
     {
-        $title = DB::select('select name from business where id = ?', [1]);
-        $locale = DB::select('select location from business where id = ?', [1]);
+        $title = DB::select('select * from business where id = ?', [1])[0];
+        
         $business = DB::table('business')
             ->join('businesstimes', 'business.id', '=', 'businesstimes.busid')
             ->select('day', 'start', 'end')
@@ -43,25 +53,9 @@ class BusinessController extends Controller
         
         return view('business')
             ->with('business', $business)
-            ->with('title', $title)
-            ->with('locale', $locale);
+            ->with('title', $title);
     }
-    protected function create(array $data)
-    {
-        return User::create([
-		'name' => ucwords($data['name']),
-		'email' => $data['email'],
-		'street_number' => $data['street_number'],
-		'route' => $data['route'],
-        'locality' => $data['locality'],
-        'administrative_area_level_1' => $data['administrative_area_level_1'],
-        'country' => $data['country'],
-		'postal_code' => (int)$data['postal_code'],
-		'password' => bcrypt($data['password']),
-		'admin' => 0,
-        ]);
-    }
-    
+     
 
 
 

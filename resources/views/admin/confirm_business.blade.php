@@ -18,7 +18,7 @@
 	        <label>Business successfully added</label>
 
         <div class="sub">
-                        <a href="{{ url('/create_business') }}"><input type="change" value="Add another business">
+                        <a href="{{ url('/create_business') }}"><input type="change" value="Change business details">
                     </div>
             </form>
     </div>
