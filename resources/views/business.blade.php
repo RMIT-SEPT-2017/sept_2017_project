@@ -113,6 +113,7 @@
 
             <div class="form-content">
                 <div class="sub-form2">
+<<<<<<< HEAD
                     <div class="sub-1">
                         @foreach($title as $title)
                         <h2>{{$title->name}}</h2>
@@ -122,6 +123,12 @@
                             @endforeach
                         <div id="map"></div>
                         <body onload="codeAddress()">
+=======
+                    <div class="sub-1">  
+                        <input class="input" id="address" value="{{$title->street_number}} {{$title->route}}, {{$title->locality}} {{$title->administrative_area_level_1}} {{$title->country}} {{$title->postal_code}}" readonly>
+                        <div id="map"></div>      
+                        <body onload="codeAddress()">   
+>>>>>>> 01b4450fc2208795470f3b0a9cc7f52c0528b4e8
                         <div>
 
                         </div>
@@ -176,7 +183,7 @@
   var map;
   function initMap() {
     geocoder = new google.maps.Geocoder();
-    var latlng = new google.maps.LatLng(-34.397, 150.644);
+    var latlng = new google.maps.LatLng(-37.9716929,144.7729595);
     var mapOptions = {
       zoom: 8,
       center: latlng

@@ -75,6 +75,29 @@
 </head>
 <body>
 @include('layouts.navAdmin') 
+    
+    
+<style>
+.header img {
+  float: left;
+  width: 100px;
+  height: 100px;
+}
+
+.header h1 {
+  position: relative;
+  top: 10px;
+  left: 25px;
+}
+.nav-link img {
+    float: left;
+    position: relative;
+    width: 40px;
+    height: 40px;
+    top: -50px;
+    left: -17px;
+}
+    </style>
     <!-- Page Content -->
     <div class="container">
 
