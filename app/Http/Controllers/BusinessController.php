@@ -22,9 +22,9 @@ class BusinessController extends Controller
 	    // }
         return redirect('/confirm_business');
     }
+
     public function index()
     {
-        
         $title = DB::select('select name from business where id = ?', [1]);
         $locale = DB::select('select location from business where id = ?', [1]);
         $business = DB::table('business')
@@ -39,6 +39,7 @@ class BusinessController extends Controller
             ->with('title', $title)
             ->with('locale', $locale);
     }
+    
 
 
 

@@ -10,10 +10,6 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script> <!-- load jquery via CDN -->
 <script type="text/javascript">
 
-	var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-	var daysLabel = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
-	var daysForm = ['sun', 'mon', 'tue', 'wed', 'thu', 'fri', 'sat'];
-
 </script>
 <style>
 		a{ color: white; }
@@ -22,11 +18,66 @@
 <div class="form-content">
     <div class="sub-form">
         <div class="sub-1">
-        <a>Welcome</a>
+				<a>Welcome</a>
         <h2>Set Business Times</h2>
         </div>
 
-            <form id="day_form" name="day_form" action="{{ action('EmployeeTimesController@updateEmployeeTimes') }}" method="POST" class="addEmployeeTimes">
+            <form id="day_form" name="day_form" action="{{ action('BusinessTimesController@updateBusinessTimes') }}" method="POST" class="addBusinessTimes">
+						<h3 align="center" style="color:{{ Session::get('confirmationColor') }};">{{ Session::get('confirmation') }}</h3>
+						<h3 align="center" style="color:{{ Session::get('errorTimeColor') }};">{{ Session::get('errorTime') }}</h3>
+
+						<label id="sunday">Sunday</label>
+								<input type="hidden" id="sun" name="day0" value="0" />
+								<select name="start0" type="text" id="duration" style="width: 30%">
+									<option value="--:--">--:--</option>
+									<option value="09:00">09:00</option>
+									<option value="09:30">09:30</option>
+									<option value="10:00">10:00</option>
+									<option value="10:30">10:30</option>
+									<option value="11:00">11:00</option>
+									<option value="11:30">11:30</option>
+									<option value="12:00">12:00</option>
+									<option value="12:30">12:30</option>
+									<option value="13:00">13:00</option>
+									<option value="13:30">13:30</option>
+									<option value="14:00">14:00</option>
+									<option value="14:30">14:30</option>
+									<option value="15:00">15:00</option>
+									<option value="15:30">15:30</option>
+									<option value="16:00">16:00</option>
+									<option value="16:30">16:30</option>
+									<option value="17:00">17:00</option>
+									<option value="17:30">17:30</option>
+									<option value="18:00">18:00</option>
+									<option value="19:30">19:30</option>
+									<option value="20:00">20:00</option>
+								</select>
+								<a> to </a>
+								<select name="end0" type="text" id="duration" style="width: 30%">
+									<option value="--:--">--:--</option>
+									<option value="09:00">09:00</option>
+									<option value="09:30">09:30</option>
+									<option value="10:00">10:00</option>
+									<option value="10:30">10:30</option>
+									<option value="11:00">11:00</option>
+									<option value="11:30">11:30</option>
+									<option value="12:00">12:00</option>
+									<option value="12:30">12:30</option>
+									<option value="13:00">13:00</option>
+									<option value="13:30">13:30</option>
+									<option value="14:00">14:00</option>
+									<option value="14:30">14:30</option>
+									<option value="15:00">15:00</option>
+									<option value="15:30">15:30</option>
+									<option value="16:00">16:00</option>
+									<option value="16:30">16:30</option>
+									<option value="17:00">17:00</option>
+									<option value="17:30">17:30</option>
+									<option value="18:00">18:00</option>
+									<option value="19:30">19:30</option>
+									<option value="20:00">20:00</option>
+								</select>
+							</br></br>
 
             <label id="monday">Monday</label>
                 <input type="hidden" id="mon" name="day1" value="1" />
@@ -132,7 +183,7 @@
 									<option value="19:30">19:30</option>
 									<option value="20:00">20:00</option>
 								</select>
-							</br></br>
+						</br></br>
 
             <label id="wednesday">Wednesday</label>
                 <input type="hidden" id="wed" name="day3" value="3" />
@@ -185,7 +236,7 @@
 									<option value="19:30">19:30</option>
 									<option value="20:00">20:00</option>
 								</select>
-							</br></br>
+						</br></br>
 
             <label id="thursday">Thursday</label>
                 <input type="hidden" id="thu" name="day4" value="4" />
@@ -238,7 +289,7 @@
 									<option value="19:30">19:30</option>
 									<option value="20:00">20:00</option>
 								</select>
-							</br></br>
+						</br></br>
 
             <label id="friday">Friday</label>
                 <input type="hidden" id="fri" name="day5" value="5" />
@@ -291,7 +342,7 @@
 									<option value="19:30">19:30</option>
 									<option value="20:00">20:00</option>
 								</select>
-							</br></br>
+						</br></br>
 
 						<label id="saturday">Saturday</label>
 								<input type="hidden" id="sat" name="day6" value="6" />
@@ -344,62 +395,10 @@
 									<option value="19:30">19:30</option>
 									<option value="20:00">20:00</option>
 								</select>
-							</br></br>
-
-						<label id="sunday">Sunday</label>
-								<input type="hidden" id="sun" name="day7" value="7" />
-								<select name="start7" type="text" id="duration" style="width: 30%">
-									<option value="--:--">--:--</option>
-									<option value="09:00">09:00</option>
-									<option value="09:30">09:30</option>
-									<option value="10:00">10:00</option>
-									<option value="10:30">10:30</option>
-									<option value="11:00">11:00</option>
-									<option value="11:30">11:30</option>
-									<option value="12:00">12:00</option>
-									<option value="12:30">12:30</option>
-									<option value="13:00">13:00</option>
-									<option value="13:30">13:30</option>
-									<option value="14:00">14:00</option>
-									<option value="14:30">14:30</option>
-									<option value="15:00">15:00</option>
-									<option value="15:30">15:30</option>
-									<option value="16:00">16:00</option>
-									<option value="16:30">16:30</option>
-									<option value="17:00">17:00</option>
-									<option value="17:30">17:30</option>
-									<option value="18:00">18:00</option>
-									<option value="19:30">19:30</option>
-									<option value="20:00">20:00</option>
-								</select>
-								<a> to </a>
-								<select name="end7" type="text" id="duration" style="width: 30%">
-									<option value="--:--">--:--</option>
-									<option value="09:00">09:00</option>
-									<option value="09:30">09:30</option>
-									<option value="10:00">10:00</option>
-									<option value="10:30">10:30</option>
-									<option value="11:00">11:00</option>
-									<option value="11:30">11:30</option>
-									<option value="12:00">12:00</option>
-									<option value="12:30">12:30</option>
-									<option value="13:00">13:00</option>
-									<option value="13:30">13:30</option>
-									<option value="14:00">14:00</option>
-									<option value="14:30">14:30</option>
-									<option value="15:00">15:00</option>
-									<option value="15:30">15:30</option>
-									<option value="16:00">16:00</option>
-									<option value="16:30">16:30</option>
-									<option value="17:00">17:00</option>
-									<option value="17:30">17:30</option>
-									<option value="18:00">18:00</option>
-									<option value="19:30">19:30</option>
-									<option value="20:00">20:00</option>
-								</select>
-							</br></br>
+						</br></br>
 
                 <div class="sub">
+												<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
                         <input type="submit" value="Submit"></a>
                     </div>
             </form>

@@ -1,8 +1,32 @@
 
+<style>
+.header img {
+  float: left;
+  width: 100px;
+  height: 100px;
+}
 
+.header h1 {
+  position: relative;
+  top: 35px;
+  left: 25px;
+}
+.nav-link img {
+    float: left;
+    position: relative;
+    width: 40px;
+    height: 40px;
+    top: -10px;
+    left: -17px;
+}
+    .header {
+        border-left: 5px solid #{{$title->colorBorder}}; 
+        background: #{{$title->colorBanner}};
+    }
+</style>
 		<div class="header">
-			<img src="img/logo.png" alt="Logo" class="logo-img" height="80" width="176">
-            </a>
+			<img src="img/logo.png" alt="Logo" class="logo-img" height="80" width="80">
+            <h1>{{ $title->name }}</h1>
 			<ul class="nav">
 				<li class="nav-link">
 					<a href="javascript:;" class="linkmenu">
@@ -22,6 +46,7 @@
 			  <div class="overlay-content">
 <!--				<a href="{!! url('/home'); !!}">Home</a>-->
 				<a href="{!! url('/booking'); !!}">Make Booking</a>
+                  <a href="{!! url('/business'); !!}">Business Details</a>
 <!--				<a href="#">View Bookings</a>-->
 				<a href="{!! url('/logout'); !!}">Log out</a>
 

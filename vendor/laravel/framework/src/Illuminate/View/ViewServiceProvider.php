@@ -7,6 +7,7 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\View\Engines\CompilerEngine;
 use Illuminate\View\Engines\EngineResolver;
 use Illuminate\View\Compilers\BladeCompiler;
+use DB;
 
 class ViewServiceProvider extends ServiceProvider
 {
