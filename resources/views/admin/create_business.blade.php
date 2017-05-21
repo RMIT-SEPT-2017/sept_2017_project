@@ -48,9 +48,9 @@
 			    @include('layouts.googleApi')
 			    <br>
 			</div>
-                <label class="input">Business Primary Colour:</label>
+                <label class="input">Choose Main Banner Colour:</label>
                     <script src="js/jscolor.js"></script>
-                    <input name="colorPrimary" class="jscolor" value="#005696">
+                    <input name="colorPrimary" class="jscolor" value="#FFFFFF">
                 <label class="input">Business Secondary Colour:</label>
                     <script src="js/jscolor.js"></script>
                     <input name="colorSeconary" class="jscolor" value="#005696">
