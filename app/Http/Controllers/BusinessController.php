@@ -39,6 +39,21 @@ class BusinessController extends Controller
             ->with('title', $title)
             ->with('locale', $locale);
     }
+    protected function create(array $data)
+    {
+        return User::create([
+		'name' => ucwords($data['name']),
+		'email' => $data['email'],
+		'street_number' => $data['street_number'],
+		'route' => $data['route'],
+        'locality' => $data['locality'],
+        'administrative_area_level_1' => $data['administrative_area_level_1'],
+        'country' => $data['country'],
+		'postal_code' => (int)$data['postal_code'],
+		'password' => bcrypt($data['password']),
+		'admin' => 0,
+        ]);
+    }
     
 
 

@@ -114,9 +114,6 @@
             <div class="form-content">
                 <div class="sub-form2">
                     <div class="sub-1">  
-                        @foreach($title as $title)
-                        <h2>{{$title->name}}</h2>
-                        @endforeach
                            @foreach($locale as $locale)
                         <input class="input" id="address" value="{{$locale->location}}" readonly>
                             @endforeach
