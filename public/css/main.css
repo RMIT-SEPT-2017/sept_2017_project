@@ -228,7 +228,7 @@ body {
     -ms-transition:0.5s all;
 }
 select {
-   background: #005696;
+   background: rgba(255, 255, 255, 0);
    width: 60%;
    padding: 5px;
    font-size: 16px;
