@@ -30,7 +30,7 @@ class BusinessTimesController extends Controller
                 $businessTime->end = $end;
                 $businessTime->save();
                 Session::flash('confirmationColor', "white");
-                Session::flash('confirmation', "Business times successfully added.");
+                Session::flash('confirmation', "Business times successfully added");
             }
         }
         return redirect('/create_business_times');
@@ -44,7 +44,7 @@ class BusinessTimesController extends Controller
     {
       if(strtotime($end)<strtotime($start)){
           Session::flash('errorTimeColor', "white");
-          Session::flash('errorTime', "A start time was after end time, that time was not added.");
+          Session::flash('errorTime', "A start time was after end time, that time was not added");
           return false;
       }
       else return true;

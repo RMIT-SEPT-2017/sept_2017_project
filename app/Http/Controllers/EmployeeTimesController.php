@@ -34,7 +34,7 @@ class EmployeeTimesController extends Controller
                     $employeeTime->end = $end;
                     $employeeTime->save();
                     Session::flash('confirmationColor', "white");
-                    Session::flash('confirmation', "Time successfully added.");
+                    Session::flash('confirmation', "Employee time successfully added");
                 }
             }
             return redirect('/add_employee_times');
@@ -49,7 +49,7 @@ class EmployeeTimesController extends Controller
     {
         if(strtotime($end)<strtotime($start)){
             Session::flash('errorTimeColor', "white");
-            Session::flash('errorTime', "A start time was after end time, that time was not added.");
+            Session::flash('errorTime', "A start time was after end time, that time was not added");
             return false;
         }
         else return true;

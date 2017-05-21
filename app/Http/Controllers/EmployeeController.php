@@ -23,7 +23,7 @@ class EmployeeController extends Controller
 	        $employee->email = $email;
 	        $employee->save();
           Session::flash('confirmationColor', "white");
-          Session::flash('confirmation', "Employee successfully added.");
+          Session::flash('confirmation', "Employee successfully added");
 	    }
         return redirect('/create_employee');
     }
@@ -65,7 +65,7 @@ class EmployeeController extends Controller
         $employees = DB::table('employees')->where('email', $email)->get();
         foreach ($employees as $employees) {
             Session::flash('confirmationColor', "white");
-            Session::flash('confirmation', "Employee not added, email already in use.");
+            Session::flash('confirmation', "Employee not added, email already in use");
             return false;
         }
         return true;
