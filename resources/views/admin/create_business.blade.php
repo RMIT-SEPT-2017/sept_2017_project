@@ -43,8 +43,11 @@
           	    <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
                 <label class="input">Business Name:</label>
                     <input placeholder="" name="name" type="text" id="name">
-                <br><label class="input">Business Address: </label>
-			     
+                <br><label class="input">Address: </label>
+			<div class="col-md-6">
+			    @include('layouts.googleApi')
+			    <br>
+			</div>
                 <label class="input">Business Primary Colour:</label>
                     <script src="js/jscolor.js"></script>
                     <input name="colorPrimary" class="jscolor" value="#005696">
