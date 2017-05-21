@@ -37,7 +37,7 @@
     <div class="sub-form">
         <div class="sub-1">
             <a>Welcome</a>
-            <h2>Add Business</h2>
+            <h2>Update Business</h2>
         </div>
             <form class="addBusiness" method="POST" action="{{ action('BusinessController@updateBusinesses') }}" onsubmit="return validateForm();">
           	    <label class="input">Business Name:</label>

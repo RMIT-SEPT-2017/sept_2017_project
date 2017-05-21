@@ -25,7 +25,7 @@
 				<a href="{!! url('/create_employee'); !!}">Add Employee</a>
 				<a href="{!! url('/view_employees'); !!}">View Availability</a>
 				</br>
-				<a href="{!! url('/create_business'); !!}">Add Business</a>
+				<a href="{!! url('/create_business'); !!}">Update Business Details</a>
 				<a href="{!! url('/create_business_times'); !!}">Change Business Times</a>
 				</br>
 				<a href="{!! url('/logout'); !!}">Log out</a>

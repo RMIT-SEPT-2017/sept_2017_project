@@ -16,16 +16,14 @@
 
 </script>
 <style>
-		a{
-			color: white;
-		}
+		a{ color: white; }
 </style>
 
 <div class="form-content">
     <div class="sub-form">
         <div class="sub-1">
         <a>Welcome</a>
-        <h2>Set business times</h2>
+        <h2>Set Business Times</h2>
         </div>
 
             <form id="day_form" name="day_form" action="{{ action('EmployeeTimesController@updateEmployeeTimes') }}" method="POST" class="addEmployeeTimes">
